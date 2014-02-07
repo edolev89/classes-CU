@@ -33,18 +33,12 @@
     jQuery( document ).ready(function( $ ) {
                              $("#searchButton").click(function(){createSearchQuery($(this));})
                              $(".img-homepage").click(function(){thumbnailClicked($(this));})
-                              $(".img-homepage").hover(function(){hoverOverThumbnail($(this));})
+                              $(".img-homepage").hover(function(){hoverOverThumbnail($(this));},function(){hoverOffThumbnail($(this));})
                              });
                              
-                             
-                             $( "li" ).hover(
-                                             function() {
-                                             $( this ).append( $( "<span> ***</span>" ) );
-                                             }, function() {
-                                             $( this ).find( "span:last" ).remove();
-                                             }
-                                             );
-function createSearchQuery(thisObj){
+    
+    
+    function createSearchQuery(thisObj){
     var url;
     console.log("creatingSearchQuery");
     query = $('#searchInputField').val();
@@ -58,8 +52,13 @@ function thumbnailClicked(thisObj){
     console.log(thisObj.attr("alt"));
 }
 function hoverOverThumbnail(thisObj){
-    console.log("hovering");
-    thisObj.css("background-color", "#003399");
+    console.log("hovering on");
+    thisObj.css("background-color", "#3090C7");
+    
+}
+function hoverOffThumbnail(thisObj){
+    console.log("hovering off");
+    thisObj.css("background-color", "#fff");
     
 }
 
