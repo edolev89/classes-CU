@@ -69,6 +69,13 @@ public function getTopClasses($limit = 10){
 
 }
 
+public function getEasyAClasses($limit = 10){
+
+	return $this->db->getEasyAClasses($limit);
+
+}
+
+
 
 //PRIVATES//
 

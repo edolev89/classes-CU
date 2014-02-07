@@ -73,7 +73,6 @@ class DB {
 	}
 	
 	public function getProfessorNameByID($id){
-		xdebug_break();
 		
 		if (! $query = $this->mysqli->query ( "SELECT firstName,lastName FROM professors WHERE `id` = '$id'" ))
 			return false;
@@ -98,7 +97,6 @@ class DB {
 		return $json;
 	}
 	public function getTopClasses($limit) {
-		xdebug_break();
 		
 		if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ))
 			// /return false;
@@ -123,6 +121,57 @@ class DB {
 		// return json_encode($json );
 		return $json;
 	}
+	
+	public function getEasyAClasses($limit){
+		xdebug_break();
+		
+		if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY " . easyA . " DESC LIMIT 0," . $limit . "" ))
+			// /return false;
+				
+			// get all rows to an array
+			$json = array ();
+		$i = 0;
+			
+		while ( $row = $query->fetch_assoc () ) {
+			//add row data to json
+			$json [] = $row;
+				
+			//get the profesoor name into the json too
+			$id = $json[$i][professorID];
+			$json[$i][name] = $this->getProfessorNameByID($id);
+				
+			$i++;
+		}
+		
+		
+		
+		// return json_encode($json );
+		return $json;
+		
+	}
+
+
+
+	public function getReviews(){
+		if (! $query = $this->mysqli->query ( "SELECT id FROM reviews" ))
+	
+			$json = array ();
+		while ( $row = $query->fetch_assoc () ) {
+			$json [] = $row[id];
+		}
+		// return json_encode($json );
+		return $json;
+	}
+	
+
+	public function  addDataToReview($id, $number, $name){
+		
+		if (! $query = $this->mysqli->query ( "UPDATE reviews SET courseNumber='$number', courseName='$name' WHERE id=$id" ))
+			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
+
+		
+	}
+
 }
 	
 	
