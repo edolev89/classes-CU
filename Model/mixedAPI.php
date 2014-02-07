@@ -14,6 +14,7 @@ class mixedApi
 	{
 		$this->api = new classesAPI('98e578648eb811e394bf12313d000d18');
 		$this->db=  new DB();
+		
 	}
 
 

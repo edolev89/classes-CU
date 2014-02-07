@@ -14,7 +14,6 @@ class DB {
 	
 	public function addUser($id, $firstName, $lastName, $email) {
 		
-		xdebug_break();
 
 		$insert = "INSERT IGNORE INTO users (facebookID,email,firstName,lastName) VALUES ($id,'$email','$firstName','$lastName');";
 
@@ -72,6 +71,20 @@ class DB {
 		
 		return $row ['id'];
 	}
+	
+	public function getProfessorNameByID($id){
+		xdebug_break();
+		
+		if (! $query = $this->mysqli->query ( "SELECT firstName,lastName FROM professors WHERE `id` = '$id'" ))
+			return false;
+		
+		$row = $query->fetch_assoc ();
+		
+		return $row['firstName']." ".$row['lastName'];
+		
+		
+	}
+	
 	public function getTopProfessors($limit) {
 		if (! $query = $this->mysqli->query ( "SELECT * FROM professors ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ))
 			// /return false;
@@ -85,14 +98,28 @@ class DB {
 		return $json;
 	}
 	public function getTopClasses($limit) {
+		xdebug_break();
+		
 		if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ))
 			// /return false;
 			
 			// get all rows to an array
 			$json = array ();
+			$i = 0;
+			
 		while ( $row = $query->fetch_assoc () ) {
+			//add row data to json			
 			$json [] = $row;
+			
+			//get the profesoor name into the json too
+			$id = $json[$i][professorID];
+			$json[$i][name] = $this->getProfessorNameByID($id);
+			
+			$i++;
 		}
+		
+		
+		
 		// return json_encode($json );
 		return $json;
 	}
