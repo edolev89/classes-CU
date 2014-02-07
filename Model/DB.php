@@ -1,14 +1,19 @@
 <?php
+error_reporting( E_ALL );
+ini_set('display_errors', 1);
+
 define ( "param1Average", "param1Average" );
 class DB {
 	private $mysqli;
 	public function __construct() {
-		// $this->mysqli = new mysqli("107.170.18.96", "root", "password", "classesCU");
-		$this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
+		 $this->mysqli = new mysqli("localhost", "root", "password", "classesCU");
+		//$this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
+		
 		
 		if ($this->mysqli->connect_error) {
 			die ( 'Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error );
 		}
+
 	}
 	
 	
@@ -110,8 +115,8 @@ class DB {
 			$json [] = $row;
 			
 			//get the profesoor name into the json too
-			$id = $json[$i][professorID];
-			$json[$i][name] = $this->getProfessorNameByID($id);
+			$id = $json[$i]['professorID'];
+			$json[$i]['name'] = $this->getProfessorNameByID($id);
 			
 			$i++;
 		}
@@ -123,9 +128,9 @@ class DB {
 	}
 	
 	public function getEasyAClasses($limit){
-		xdebug_break();
+		//xdebug_break();
 		
-		if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY " . easyA . " DESC LIMIT 0," . $limit . "" ))
+		if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY easyA  DESC LIMIT 0," . $limit . "" ))
 			// /return false;
 				
 			// get all rows to an array
@@ -137,8 +142,8 @@ class DB {
 			$json [] = $row;
 				
 			//get the profesoor name into the json too
-			$id = $json[$i][professorID];
-			$json[$i][name] = $this->getProfessorNameByID($id);
+			$id = $json[$i]['professorID'];
+			$json[$i]['name'] = $this->getProfessorNameByID($id);
 				
 			$i++;
 		}
