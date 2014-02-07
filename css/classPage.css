@@ -1,0 +1,15 @@
+/*
+ * Globals
+ */
+/* Custom default button */
+.topGridWrapper{
+    width:100px;
+    height:100px;
+    margin-top:20px;
+    margin-left:100px;
+    margin-right:20px;
+    color: #333;
+    text-shadow: none; /* Prevent inheritence from `body` */
+    background-color: #fff;
+    border: 1px solid #fff;
+}
