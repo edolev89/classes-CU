@@ -8,8 +8,8 @@ include('mixedAPI.php');
 
 $api = new mixedAPI();
 
-$result = $api->getClassesByProfessor("Jae");
-
+//$result = $api->getClassesByID("COMS3157", $limit);
+$result = $api->getTopProfessors(10);
 
 foreach($result as $key => $value) {
 	

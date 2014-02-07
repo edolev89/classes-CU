@@ -1,5 +1,7 @@
 <?php
 
+define("param1Average", "param1Average");
+
 
 
 class DB
@@ -9,7 +11,12 @@ class DB
 	
 	public function __construct()
 	{
-		$this->mysqli = new mysqli("localhost", "root", "root", "classesCU");
+		$this->mysqli = new mysqli("107.170.18.96", "root", "password", "classesCU");
+		
+		if ($this->mysqli->connect_error) {
+			die('Connect Error (' . $mysqli->connect_errno . ') '
+					. $mysqli->connect_error);
+		}
 	}
 
 
@@ -33,6 +40,18 @@ class DB
 		return $row['nugget'];
 		
 		
+	}
+	
+	
+	public function getTopProfessors($limit){
+	
+		if(!$query = $this->mysqli->query("SELECT * FROM professors ORDER BY ".param1Average." DESC LIMIT 0,".$limit.""))
+			///return false;
+		
+		echo "SELECT * FROM professors ORDER BY ".param1Average." DESC LIMIT 0,".$limit."";
+		
+		return $query->mysqli_fetch_all();
+	
 	}
 
 		

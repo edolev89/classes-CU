@@ -30,12 +30,12 @@ class classesAPI
 	
 	public function getClassesByTitle($title,$limit)
 	{
-		return $this->call("courses/v2/", array("title" => $title, "limit" => $limit ));
+		return $this->call("courses/v2/courses", array("title" => $title, "limit" => $limit ));
 	}
 	
 	public function getClassesByID($id,$limit)
 	{
-		return $this->call("courses/v2/", array("course" => $id, "limit" => $limit ));
+		return $this->call("courses/v2/courses", array("course" => $id, "limit" => $limit ));
 	}
 	
 	public function getSectionsByCourse($id,$limit,$term)
