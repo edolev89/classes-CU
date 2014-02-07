@@ -6,6 +6,7 @@
                                  $("#easiestClassesButton").click(function(){showEasiestClasses($(this));})
                                  $("#searchButton").click(function(){createSearchQuery($(this));})
                                  $(".ddOption").click(function(){dropDownClicked($(this));})
+                                  $(".img-homepage").hover(function(){hoverOverThumbnail($(this));},function(){hoverOffThumbnail($(this));})
 });
       
                       
@@ -58,6 +59,16 @@
         console.log(temp);
         console.log(temp);
         $(thisObj[0]).html(temp);
+        
+    }
+    function hoverOverThumbnail(thisObj){
+        console.log("hovering on");
+        thisObj.css("background-color", "#3090C7");
+        
+    }
+    function hoverOffThumbnail(thisObj){
+        console.log("hovering off");
+        thisObj.css("background-color", "#fff");
         
     }
 
