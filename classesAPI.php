@@ -1,5 +1,5 @@
   <?php
-define ("F_DEBUG_MODE", false);
+define ("F_DEBUG_MODE", true);
 
 class classesAPI
 {	
@@ -30,6 +30,8 @@ class classesAPI
 	
 	public function getClassesByTitle($title,$limit)
 	{
+		//$title =  rawurlencode($title);
+		
 		return $this->call("courses/v2/courses", array("title" => $title, "limit" => $limit ));
 	}
 	
@@ -55,11 +57,13 @@ class classesAPI
 	
     protected function call($method, $params = array())
     {
- 
+ 		print_r($params);
     	$params["pretty"] = "true";
     	
     	$params = array_merge($this->auth_params, $params);
-		$url = $this->api_server_url . "$method?".http_build_query($params);
+		$url = $this->api_server_url . "$method?".str_replace('+', '%20', http_build_query($params));
+		
+		
 		
 		if (F_DEBUG_MODE)
 		{
@@ -88,5 +92,17 @@ class classesAPI
 		return $result->data;
 
     }
+    
+    public function httpBuildQuery3986(array $params, $sep = '&')
+    {
+    	$parts = array();
+    	foreach ($params as $key => $value) {
+    		$parts[] = sprintf('%s=%s', $key, rawurlencode($value));
+    	}
+    
+    	return implode($sep, $parts);
+    }
+    
+    
 }
 ?>

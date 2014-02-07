@@ -38,8 +38,9 @@ public function getClassesByDepartment($department,$limit)
 
 public function getClassesByTitle($title,$limit)
 {
+
 	$result = $this->api->getClassesByTitle($title, $limit);
-	return $this->addProfessorsRatingToQuery($result);
+	return $this->addProfessorsInfoToQuery($result);
 	
 	
 	
@@ -49,7 +50,7 @@ public function getClassesByID($id,$limit)
 {
 	$result = $this->api->getClassesByID($id, $limit);
 
-	return $this->addProfessorsRatingToQuery($result);
+	return $this->addProfessorsInfoToQuery($result);
 	
 	
 	
@@ -61,13 +62,17 @@ public function getTopProfessors($limit){
 	
 }
 
+public function getTopClasses($limit = 10){
 
+	return $this->db->getTopClasses($limit);
+
+}
 
 
 //PRIVATES//
 
 
-private function addProfessorsRatingToQuery($query){
+private function addProfessorsInfoToQuery($query){
 	
 	foreach($query as $key=>$value){
 	
@@ -78,6 +83,8 @@ private function addProfessorsRatingToQuery($query){
 	
 				$section->professor[name] = $section->Instructor1Name;
 				$section->professor[rating] = $this->db->getProfessorRatingByName($section->professor[name]);
+				$section->professor[id] = $this->db->getProfessorIDByName($section->professor[name]);
+				
 			}
 				
 		}
@@ -85,6 +92,8 @@ private function addProfessorsRatingToQuery($query){
 		else{ //no sections
 			$value->professor[name] = $value->Instructor1Name;
 			$value->professor[rating] = $this->db->getProfessorRatingByName($value->professor[name]);
+			$section->professor[id] = $this->db->getProfessorIDByName($section->professor[name]);
+				
 		}
 	
 	

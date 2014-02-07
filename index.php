@@ -9,7 +9,11 @@ include('mixedAPI.php');
 $api = new mixedAPI();
 
 //$result = $api->getClassesByID("COMS3157", $limit);
-$result = $api->getTopProfessors(10);
+//$result = $api->getTopProfessors(10);
+$result = $api->getTopClasses(10);
+
+//$result = $api->getClassesByTitle("Discrete Mathematics");
+//print_r($result);
 
 foreach($result as $key => $value) {
 	
