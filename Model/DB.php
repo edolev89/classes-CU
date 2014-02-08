@@ -8,7 +8,7 @@ class DB {
 	public function __construct() {
 		 $this->mysqli = new mysqli("localhost", "root", "password", "classesCU");
 		//$this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
-		
+
 		if ($this->mysqli->connect_error) {
 			die ( 'Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error );
 		}

@@ -19,18 +19,8 @@ a:hover {
   border: 1px solid #fff;
 }
 
-/* cover photo */
-#cover-photo
-{
-   width:75%;
-   height:75%;
-}
-
 /* Custom Select Tab button */
-
-.btn-default-selected,
-.btn-default-selected:hover,
-.btn-default-selected:focus{
+.btn-default-selected{
   color: #fff;
   text-shadow: none; /* Prevent inheritence from `body` */
   background-color: #333;
@@ -54,9 +44,6 @@ color: #fff;
     margin-left: 10px;
     margin-right: 10px;
 }
-.img-homepage:hover{
-
-}
 
 /*
  * Base structure
@@ -64,12 +51,9 @@ color: #fff;
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   background-color: #333;
-}
-body {
-  color: #fff;
-  text-align: center;
+  color: #fff;  
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
