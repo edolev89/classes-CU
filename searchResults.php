@@ -87,7 +87,7 @@ include ('Controller/searchResultsCode.php');
 			<div class="col-lg-10">
 				<div class="panel panel-default cu_panel_search">
 					<div class="panel-body" style="margin-top:4px;">						
-						<?php if($type == 'CourseName' || $type == 'CourseNumber') {?>
+						<?php if($type == 'ClassName' || $type == 'ClassName') {?>
 							<table class="table table-striped" id="bestClassesTable">
 								<thead>
 									<tr>									
