@@ -42,78 +42,66 @@ include ('Controller/indexCode.php');
 
 <div class="site-wrapper-inner">
 	<div class="container">
-		
+	
+		<!-- nav bar row -->
 		<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
-<nav class="navbar navbar-inverse cu_navbar" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <h3><A href="home.html">CUReview</a>&nbsp&nbsp</h3>
-    </div>
+				<nav class="navbar navbar-inverse cu_navbar" role="navigation">
+				  <div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					  <h3><A href="home.html">CUReview</a>&nbsp&nbsp</h3>
+					</div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Top Picks</a></li>        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My CURe <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">My Favorites</a></li>
-            <li><a href="#">Friends' Picks</a></li>                                   
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Logout</a></li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-		<div class="input-group" style="max-width:100px;">
-			<input type="text" placeholder="Search by..." id="searchInputField" class="form-control">
-			<div class="input-group-btn">
-				<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButton" data-toggle="dropdown">
-					Instructor&nbsp<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu pull-right">
-					<li><a class="ddOption" href="#">Department&nbsp</a></li>
-					<li><a class="ddOption" href="#">Course Name&nbsp</a></li>
-					<li><a class="ddOption" href="#">Course Number&nbsp</a></li>
-				</ul>
-				<button type="button" class="btn btn-info" id="searchButton">
-					<span class="glyphicon glyphicon-search"></span>
-				</button>						
-			</div>
-			<!-- /btn-group -->
-		</div>	
-      </form>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					  <ul class="nav navbar-nav">
+						<li class="active"><a href="#">Top Picks</a></li>        
+						<li class="dropdown">
+						  <a href="#" class="dropdown-toggle" data-toggle="dropdown">My CURe <b class="caret"></b></a>
+						  <ul class="dropdown-menu">
+							<li><a href="#">My Favorites</a></li>
+							<li><a href="#">Friends' Picks</a></li>                                   
+							<li><a href="#">One more separated link</a></li>
+						  </ul>
+						</li>
+					  </ul>
+					   <ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Log Out</a></li>
+					  </ul>
+					  <form class="navbar-form navbar-left" role="search">
+						<div class="input-group" style="max-width:100px;">
+							<input type="text" placeholder="Search by..." id="searchInputField" class="form-control">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButton" data-toggle="dropdown">
+									Instructor&nbsp<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu pull-right">									
+									<li><a class="ddOption" href="#">Course Name&nbsp</a></li>
+									<li><a class="ddOption" href="#">Course Number&nbsp</a></li>
+								</ul>
+								<button type="button" class="btn btn-info" id="searchButton">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>						
+							</div>
+							<!-- /btn-group -->
+						</div>	
+					  </form>
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>				
+					</div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</nav>				
 			</div>
 			<div class="col-lg-1"></div>
-		</div
-		<!-- top nav row-->
-		<div class="row">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-10">
-				
-				<ul class="nav masthead-nav">
-					<li class="active"><a href="#">Social</a></li>
-					<li><a href="#">Log out</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-1"></div>
-		</div>		
-		<!-- end of top nav row -->
+		</div>
+<!-- end of nav bar row-->
 		
 		<!-- logo row -->
 		<div class="row text-center">			
