@@ -1,8 +1,6 @@
 <?php
 include ('Controller/indexCode.php');
 include ('Controller/session.php');
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -247,10 +245,10 @@ include ('Controller/session.php');
 					<div class="col-lg-12 text-center">
 						<p class="lead">Take a look at your friends' favorites...</p>
 						<img src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
-						<img src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
-						<img src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
-						<img src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
-						<img src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
+						<img src="files/emily.jpg" alt="..." class="img-homepage img-thumbnail">
+						<img src="files/eden.jpg" alt="..." class="img-homepage img-thumbnail">
+						<img src="files/katie.jpg" alt="..." class="img-homepage img-thumbnail">
+						<img src="files/gidi.jpg" alt="..." class="img-homepage img-thumbnail">
 					</div>			
 				</div>
 			</div>
