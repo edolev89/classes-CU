@@ -58,8 +58,10 @@
 </div>
 </div>
 
-<h1 class="">CUReview</h1>
-<br>
+<div class="row">
+<img src="files/CUReviewLogo.png" id="cover-photo" alt="...">
+</div>
+
 <div class="lead row">
 <div class="col-lg-2"></div>
 <div class="col-lg-8">

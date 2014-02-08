@@ -19,6 +19,13 @@ a:hover {
   border: 1px solid #fff;
 }
 
+/* cover photo */
+#cover-photo
+{
+   width:75%;
+   height:75%;
+}
+
 /* Custom Select Tab button */
 
 .btn-default-selected,
@@ -46,6 +53,9 @@ color: #fff;
     height:120px;
     margin-left: 10px;
     margin-right: 10px;
+}
+.img-homepage:hover{
+
 }
 
 /*
