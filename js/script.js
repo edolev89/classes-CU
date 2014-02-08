@@ -8,8 +8,8 @@ jQuery( document ).ready(function( $ ) {
                          $("#searchButtonHeader").click(function(){createSearchQueryHeader($(this));})
                          $(".ddOption").click(function(){dropDownClicked($(this));})
                          $(".img-homepage").hover(function(){hoverOverThumbnail($(this));},function(){hoverOffThumbnail($(this));})
-                         $('li').click(function(){starClicked($(this));});
-                         
+                         $('.star').click(function(){starClicked($(this));});
+                         $('#sendReview').click(function(){sendClicked($(this));});
                          
                          //catch enter button
                          
@@ -104,11 +104,48 @@ function hoverOffThumbnail(thisObj){
     thisObj.css("background-color", "#fff");
     
 }
+
+helpfulness =0;
+clarity =0;
+easiness =0;
+knowledge =0;
 function starClicked(thisObj){
     console.log("star clicked");
-    //alert("Index: " + thisObj.index());
-    thisObj.append("<b></b>");
     
+    //alert(thisObj.attr('href'))
+    //alert("Index: " + thisObj.index());
+    thisObj.html("<a href='#'><span></span></a><b></b>");
+    value = thisObj.attr('href');
+    value = value.replace("#","");
+    parentCategory = thisObj.parent().parent().parent().attr('id');
+    switch(parentCategory)
+    {
+    case "star-rate-helpfulness":
+      helpfulness=value;
+      break;
+    case "star-rate-clarity":
+      clarity=value;
+      break;
+    case "star-rate-easiness":
+    	easiness=value;
+    	break;
+    case "star-rate-knowledge":
+    	knowledge=value;
+    	break;
+    default:
+      console.log('nothing worked');
+    }
+    console.log(parentCategory+value);
+    console.log(helpfulness+clarity+easiness+knowledge);
 }
 
+words =0;
+workload =0;
+function sendClicked(thisObj){
+	words = $('#wordsReview').val();
+	workload = $('#workLoadReview').val();
+    data = ("{helpfulness:"+helpfulness+",clarity:"+clarity+",easiness:"+easiness+",knowledge:"+knowledge+",words:"+words+",workLoad:"+workload+"}");
+    $.post( "ajax.php", data);
+    
+}
 
