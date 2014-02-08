@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors", 0);
+
     include ('Controller/indexCode.php');
     include ('Controller/session.php');
     ?>
