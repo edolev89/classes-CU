@@ -40,7 +40,7 @@ include ('Controller/indexCode.php');
 
 
 
-<<<<<<< HEAD
+
 <div class="site-wrapper">
 
 <div class="site-wrapper-inner">
@@ -111,76 +111,7 @@ id="easiestClassesButton">Easy-A</button>
 <th>Instructor</th>
 <th>Overall Grade</th>
 </tr>
-=======
-	<div class="site-wrapper">
 
-		<div class="site-wrapper-inner">
-
-			<div class="cover-container">
-
-				<div class="masthead clearfix">
-					<div class="inner">
-						<h3 class="masthead-brand">
-							<A href="home.html">CUReview</a>
-						</h3>
-						<ul class="nav masthead-nav">
-							<li class="active"><a href="#">Social</a></li>
-							<li><a href="#">Log out</a></li>
-						</ul>
-					</div>
-				</div>
-
-				<h1 class="">CUReview</h1>
-				<br>
-				<div class="lead row">
-					<div class="col-lg-2"></div>
-					<div class="col-lg-8">
-						<div class="input-group">
-							<input type="text" placeholder="Search by..."
-								id="searchInputField" class="form-control">
-							<div class="input-group-btn">
-								<button type="button" class="btn btn-default dropdown-toggle"
-									id="dropDownButton" data-toggle="dropdown">
-									Instructor<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu pull-right">
-									<li><a class="ddOption" href="#">Department</a></li>
-									<li><a class="ddOption" href="#">Course Name</a></li>
-									<li><a class="ddOption" href="#">Course Number</a></li>
-								</ul>
-							</div>
-							<!-- /btn-group -->
-						</div>
-						<!-- /input-group -->
-					</div>
-					<!-- /.col-lg-8 -->
-					<div class="col-lg-2">
-						<button type="button" class="btn btn-info" id="searchButton"
-							style="margin-left: -100px;">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</div>
-				</div>
-				<!-- /.row -->
-
-
-				<!-- Standard button -->
-				<button type="button" class="btn btn-default-selected"
-					id="bestClassesButton">Best Classes</button>
-				<button type="button" class="btn btn-primary"
-					id="bestTeachersButton">Best Instructors</button>
-				<button type="button" class="btn btn-primary"
-					id="easiestClassesButton">Easy-A</button>
-				<!--<button type="button" class="btn btn-primary">Our Picks</button>-->
-				<!-- Best Classes Table -->
-				<table class="table text-left table-bordered" id="bestClassesTable">
-					<tr>
-						<th>Class Name</th>
-						<th>Department</th>
-						<th>Instructor</th>
-						<th>Overall Grade</th>
-					</tr>
->>>>>>> dbf3124823922a78fc77936a0a0f77f801c3f41d
 <?php
 
 foreach ( $topClasses as $key => $value ) {
