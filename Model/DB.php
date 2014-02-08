@@ -19,8 +19,8 @@
             if (! $query = $this->mysqli->query ( $insert ))
                 echo "INSERT failed: (" . $query->errno . ") " . $query->error;
         }
-        public function addReview($courseNumber, $courseName, $profFirst, $profLast, $workload, $param1, $param2, $param3, $param4) {
-            $insert = "INSERT INTO reviews (courseNumber,courseName,profFirst,profLast,workload,param1,param2,param3,param4) VALUES ('$courseNumber', '$courseName', '$profFirst', '$profLast','$workload',$param1,$param2,$param3,$param4)";
+        public function addReview($courseNumber, $courseName, $workload, $param1, $param2, $param3, $param4) {
+            $insert = "INSERT INTO reviews (courseNumber,courseName,workload,param1,param2,param3,param4) VALUES ('$courseNumber', '$courseName','$workload',$param1,$param2,$param3,$param4)";
             
             if (! $query = $this->mysqli->query ( $insert ))
                 echo "INSERT failed: (" . $query->errno . ") " . $query->error;
