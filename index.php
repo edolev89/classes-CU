@@ -1,5 +1,7 @@
 <?php
 include ('Controller/indexCode.php');
+include ('Controller/session.php');
+
 
 ?>
 <!DOCTYPE html>

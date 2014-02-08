@@ -1,7 +1,10 @@
 <?php
 include('Model/DB.php');
-
-
+include('Controller/session.php');
+if ($user) {
+//	$logoutUrl = $facebook->getLogoutUrl();
+	header( 'Location: http://107.170.18.96/classes-cu/index.php' ) ;
+}
 /**
  * Copyright 2011 Facebook, Inc.
  *
@@ -17,60 +20,93 @@ include('Model/DB.php');
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
-require 'fb/facebook.php';
-
-// Create our Application instance (replace this with your appId and secret).
-$facebook = new Facebook(array(
-  'appId'  => '647770695269383',
-  'secret' => '02eb0ced79dc99a8a7fa1fb7e80cafe7',
-));
-
-$db=  new DB();
-
-
-// Get User ID
-$user = $facebook->getUser();
-
-// We may or may not have this data based on whether the user is logged in.
-//
-// If we have a $user id here, it means we know the user is logged into
-// Facebook, but we don't know if the access token is valid. An access
-// token is invalid if the user logged out of Facebook.
-
-
-
-
-
-if ($user) {
-  try {
-    // Proceed knowing you have a logged in user who's authenticated.
-    $user_profile = $facebook->api('/me');
-    $db->addUser($user_profile['id'], $user_profile['first_name'], $user_profile['last_name'], $user_profile['email']);
-    
-    
-    
-    //add user to DB if new
-    
-    
-  } catch (FacebookApiException $e) {
-    error_log($e);
-    $user = null;
-  }
-}
-
-// Login or logout url will be needed depending on current user state.
-if ($user) {
-  $logoutUrl = $facebook->getLogoutUrl();
-} else {
-  $statusUrl = $facebook->getLoginStatusUrl();
-  $loginUrl = $facebook->getLoginUrl();
-}
-
-// This call will always work since we are fetching public data.
-$naitik = $facebook->api('/naitik');
-
 ?>
+
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+    <head>
+        <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <meta name="description" content="">
+                        <meta name="author" content="">
+                            <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+                                
+                                <title>CUReview - Login</title>
+
+                                <!-- Bootstrap core CSS -->
+                                <link href="../css/bootstrap.min.css" rel="stylesheet">
+                                    
+                                    <!-- Custom styles for this template -->
+                                    <link href="../css/cover.css" rel="stylesheet">
+                                        
+                                        <!-- Just for debugging purposes. Don't actually copy this line! -->
+                                        <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+                                        
+                                        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+                                        <!--[if lt IE 9]>
+                                         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                                         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+                                         <![endif]-->
+                                        </head>
+    
+										<body style="height:100% vertical-align:center;">
+										<!-- Facebook login root -->
+											<div id="fb-root"></div>
+											<script>(function(d, s, id) {
+													 var js, fjs = d.getElementsByTagName(s)[0];
+													 if (d.getElementById(id)) return;
+													 js = d.createElement(s); js.id = id;
+													 js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=647770695269383";
+													 fjs.parentNode.insertBefore(js, fjs);
+													 }(document, 'script', 'facebook-jssdk'));</script>										
+											<div class="container">											
+												<div class="row">
+													<div class="col-lg-12" style="height:150px;"></div>
+												</div>
+												<div class="row">
+													<div class="col-lg-2"></div>
+													<div class="col-lg-8">
+														<div class="jumbotron">
+															<div class="container-fluid">
+																<div class="row">
+																	<div class="col-lg-12">
+																		<img src="../files/CUReviewLogo.png" style="width:50%; height:50%;">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-lg-12" style="padding-top: 25px; padding-left:39px;">
+																		<p>Genuine reviews that only students can access.<br>Sorry professor! </p>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-lg-12" style="padding-top: 40px; padding-left:39px;">
+																		<a style="display:block;" href="<?php echo $facebook->getLoginUrl(); ?>" fb-login-button" data-size="xlarge" data-show-faces="false" data-auto-logout-link="false" scope="email"></a>
+																	</div>
+																</div>
+															</div>																									
+														</div>											
+													</div>
+													<div class="col-lg-2"></div>
+												</div>
+											</div>
+        
+        <!-- Bootstrap core JavaScript
+         ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/docs.min.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+---------GIDI
 <!doctype html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
