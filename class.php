@@ -126,11 +126,11 @@ include('Controller/classCode.php');
 																				<div class="starRate" id="star-rate-helpfulness">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -141,11 +141,11 @@ include('Controller/classCode.php');
 																				<div class="starRate" id="star-rate-clarity">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -156,11 +156,11 @@ include('Controller/classCode.php');
 																				<div class="starRate" id="star-rate-easiness">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -171,11 +171,11 @@ include('Controller/classCode.php');
 																				<div class="starRate" id="star-rate-knowledge">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
-																				<li><a href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -285,15 +285,15 @@ include('Controller/classCode.php');
 										<tbody>
 											<tr>
 												<td width="25%">Course Number</td>
-												<td><?php echo $result->Course; ?></td>
+												<td id="course"><?php echo $result->Course; ?></td>
 											</tr>
 											<tr>
 												<td>Call Number</td>
-												<td><?php echo $result->CallNumber; ?></td>
+												<td id="callNumber"><?php echo $result->CallNumber; ?></td>
 											</tr>
 											<tr>
 												<td>Instructor</td>
-												<td><?php echo $result->Instructor1Name ?></td>
+												<td id="instructor"><?php echo $result->Instructor1Name ?></td>
 											</tr>
 											<tr>
 												<td>Description</td>
