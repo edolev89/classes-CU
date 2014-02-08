@@ -89,7 +89,7 @@
 																</div>
 																<div class="row">
 																	<div class="col-lg-12">
-																		<textarea class="textarea cu_textarea" style="height:200px;"></textarea>
+																		<textarea class="textarea cu_textarea" id="wordsReview" style="height:200px;">asdsadasd</textarea>
 																	</div>
 																</div>
 																<div class="row">
@@ -99,7 +99,7 @@
 																</div>
 																<div class="row">
 																	<div class="col-lg-12">																																
-																		<textarea class="textarea cu_textarea" style="height:100px;"></textarea>																						
+																		<textarea class="textarea cu_textarea" id="workLoadReview"style="height:100px;"></textarea>																						
 																	</div>
 																</div>
 															</div>															
@@ -120,11 +120,11 @@
 																				<div class="starRate" id="star-rate-helpfulness">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -135,11 +135,11 @@
 																				<div class="starRate" id="star-rate-clarity">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -150,11 +150,11 @@
 																				<div class="starRate" id="star-rate-easiness">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -165,11 +165,11 @@
 																				<div class="starRate" id="star-rate-knowledge">
 																				<div><b></b></div>
 																				<ul>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
-																				<li><a  class="star" href="#"><span></span></a></li>
+																				<li><a  class="star" href="#5"><span></span></a></li>
+																				<li><a  class="star" href="#4"><span></span></a></li>
+																				<li><a  class="star" href="#3"><span></span></a></li>
+																				<li><a  class="star" href="#2"><span></span></a></li>
+																				<li><a  class="star" href="#1"><span></span></a></li>
 																				</ul>
 																				</div>	
 																			</td>																			
@@ -184,7 +184,7 @@
 										  </div>
 										  <div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Send it!</button>
+											<button type="button" class="btn btn-primary" id="sendReview">Send it!</button>
 										  </div>											
 										  </form>
 										</div>
@@ -197,7 +197,7 @@
 									<table class="table table-bordered cu_table_grades">
 										<tr>
 											<!-- add classes to table cells: A+ success, A info, B and C active, F danger, D warning -->
-											<td class="success">
+											<td class="">
 												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
@@ -211,7 +211,7 @@
 													</div>													
 												</div>														
 											</td>
-											<td class="info">
+											<td class="">
 												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
@@ -225,7 +225,7 @@
 													</div>													
 												</div>														
 											</td>
-										<td class="danger">
+										<td class="">
 												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
@@ -239,7 +239,7 @@
 													</div>													
 												</div>														
 											</td>
-										<td class="warning">
+										<td class="">
 												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
@@ -253,7 +253,7 @@
 													</div>													
 												</div>														
 											</td>
-										<td class="active">
+										<td class="">
 												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
