@@ -10,6 +10,13 @@ float:right !important;
 	
 }
 
+.cu_navbar_header_bg {
+	background-image:url('../files/CUReviewLogo15Percent.png');
+	background-repeat:no-repeat;
+	background-position:50% 57%;
+	width:135px;
+}
+
 .cu_row_header {
 	padding-top:15px;
 }

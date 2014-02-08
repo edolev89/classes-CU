@@ -1,6 +1,6 @@
 <?php
 error_reporting ( E_ALL );
-include ('Controller/searchResultsCode.php');
+include ('Controller/indexCode.php');
 ?>
 
 <!DOCTYPE html>
@@ -32,154 +32,107 @@ include ('Controller/searchResultsCode.php');
   </head>
 
   <body>
-
-	<div class="container" style="padding-top:5px;">
-		 
+	<div class="container">
+		<?
+		include ('header.php');
+		?>
 		 <!-- header row -->
 		 <div class="row cu_row_header">
 			<div class="col-lg-12">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-lg-12 text-center">
-							<h1 class="cu_header">Search results for "<?php echo "$query"; ?>"</h1>							
+							<h1 class="cu_header">Favorites</h1>							
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-12 text-center">
-							<h3 class="cu_second_header"><small>Or you can search for something else...</small></h3>
+							<h3 class="cu_second_header"><small>So you don't forget...</small></h3>
 						</div>
 					</div>
 				</div>
 			</div>
 		 </div>
-		 <!-- end of header row -->
-		 		
-		<!-- search bar row -->
-		<div class="lead row">
-			<div class="col-lg-3"></div>
-			<div class="col-lg-6">
-				<div class="input-group">
-					<input type="text" placeholder="Search by..." id="searchInputField" class="form-control">
-					<div class="input-group-btn">
-						<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButton" data-toggle="dropdown">
-							Instructor&nbsp<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu pull-right">							
-							<li><a class="ddOption" href="#">Class Name&nbsp</a></li>
-							<li><a class="ddOption" href="#">Class Number&nbsp</a></li>
-						</ul>
-						<button type="button" class="btn btn-info" id="searchButton">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>						
-					</div>
-					<!-- /btn-group -->
-				</div>
-				<!-- /input-group -->
-			</div>
-			<!-- /.col-lg-8 -->
-			<div class="col-lg-3"></div>
-		</div>
-		<!-- end of search bar row -->
-		
-		 <!-- content row -->
+		 <!-- end of header row -->		 		
 		<div class="row">
+			<div class="col-lg-12" style="padding-top:20px;">
+				
+			</div>
+		</div>
+		 <!-- content row -->
+			<div class="row">
 			<div class="col-lg-1"></div>
 			<div class="col-lg-10">
-				<div class="panel panel-default cu_panel_search">
-					<div class="panel-body" style="margin-top:4px;">						
-						<?php if($type == 'ClassName' || $type == 'ClassName') {?>
-							<table class="table table-striped" id="bestClassesTable">
-								<thead>
-									<tr>									
-										<th>Class Name</th>
-										<th>Class #</th>
-										<th>Call Number</th>
-										<th>Day/Time</th>
-										<th>Term</th>
-										<th>Instructor</th>
-										<th>Avg. Grade</th>								
-									</tr>
-								</thead>
-								<tbody>
-								<?php
-								
-								$professorsTeaching = array();
-								foreach ( $results as $key => $value ) {	
-									foreach ( $value->Sections as $pey => $section ) { //print all sections
-										
-										//make sure we only show one section per professor
-										
-										if(array_search($section->professor ['name'], $professorsTeaching) === false)
-											$professorsTeaching[] = $section->professor ['name']; // add the professor teaching
-										else
-											 continue;
-										//print_r($section);
-										
-										$startTime = substr($section->StartTime1,0,5);
-										$endTime =  substr($section->EndTime1,0,5);
-										
-										echo '<tr>';
-										echo "<td>$value->CourseTitle</td>";
-										echo "<td>$value->Course</td>";
-										echo "<td>$section->CallNumber</td>";
-										echo "<td>$section->MeetsOn1 | $startTime-$endTime</td>";
-										echo "<td class=\"text-center\"><span class=\"glyphicon ".termClassPicker($section->Term)."\"></span></td>";
-										echo "<td>";
-										echo $section->professor ['name'];
-										echo '</td>';
-										echo "<td>A+</td>";
-										echo '</tr>';
-										
-										
-									}
-								}
-								?>
-								</tr>
-								</tbody>
-							</table>	
-							<?php }?>	
-									
-							<!-- Professors -->
-							<?php if($type == 'Instructor') {?>
-							<table class="table table-striped" id="bestProfessorsTable">
-								<thead>
-									<tr>
-										<th>Instructor</th>
-										<th>Department</th>
-										<th># of Graders</th>
-										<th>Overall Grade</th>
-									</tr>
-								</thead>
-								<tbody>
-								<?php
-								
-			foreach ( $results as $key => $value ) {
-									// print_r($value);
-									echo '<tr>';
-									echo "<td>";
-									echo $value['firstName']." ".$value['lastName'];
-									echo '</td>';
-									echo "<td>";
-									echo $value['department'];
-									echo "</td>";
-									echo "<td>";
-									echo $value['numOfGraders'];
-									echo "</td>";
-									echo "<td>";
-									echo $value['nugget'];
-									echo "</td>";
-									echo '</tr>';
-								}
-								?>
-							</table>
-							</tbody>
-						<?php }?>	
-					</div>
-				</div>				
+			<div class="panel panel-default cu_panel_search">
+			<div class="panel-body">
+			<ul class="nav nav-tabs">
+			<li class="active"><a href="#classes" data-toggle="tab">Favorite Classes</a></li>
+			<li><a href="#instructors" data-toggle="tab">Favorite Instructors</a></li>			
+			</ul>
+			<div class="tab-content">
+			<div class="tab-pane fade in active" id="classes">
+			<!-- Best Classes Table -->
+			<table class="table table-striped" id="bestClassesTable">
+			<thead>
+			<tr>
+			<th>Class Name</th>
+			<th>Department</th>
+			<th>Instructor</th>
+			<th>Overall Grade</th>
+			</tr>
+			</thead>
+			<tbody>
+			<?php
+				
+				foreach ( $topClasses as $key => $value ) {
+					
+					echo '<tr>';
+					echo "<td>$value[className]</td>";
+					echo "<td>$value[department]</td>";
+					echo "<td>$value[name]</td>";
+					echo '<td>A+</td>';
+					echo '</tr>';
+				}
+				?>
+			</tbody>
+			</table>
+			</div>
+			<div class="tab-pane fade" id="instructors">
+			<!-- Best Professors Table -->
+			<table class="table table-striped" id="bestProfessorsTable">
+			<thead>
+			<tr>
+			<th>Instructor</th>
+			<th>Culpa Nugget</th>
+			<th>Rating</th>
+			<th># of Graders</th>
+			</tr>
+			</thead>
+			<tbody>
+			<?php
+				
+				foreach ( $topProfessors as $key => $value ) {
+					
+					echo '<tr>';
+					echo "<td>$value[firstName] $value[lastName]</td>";
+					echo "<td>$value[nugget]</td>";
+					echo "<td>$value[param1Average]</td>";
+					echo "<td>$value[numOfGraders]</td>";
+					echo '</tr>';
+				}
+				
+				?>
+			</tbody>
+			</table>
+			</div>						
+			</div>
+			</div>
+			</div>
+			</div>
 			</div>
 			<div class="col-lg-1"></div>
-		</div>
-		<!-- end of content row -->
+			</div>
+			<!-- end of content row -->
 	</div>
 	
     <!-- Bootstrap core JavaScript

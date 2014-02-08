@@ -33,8 +33,12 @@ include ('Controller/searchResultsCode.php');
 
   <body>
 
-	<div class="container" style="padding-top:5px;">
-		 
+	<div class="container">
+	
+		<?
+		include ('header.php');
+		?>	
+	
 		 <!-- header row -->
 		 <div class="row cu_row_header">
 			<div class="col-lg-12">
@@ -157,7 +161,7 @@ include ('Controller/searchResultsCode.php');
 									// print_r($value);
 									echo '<tr>';
 									echo "<td>";
-									echo $value['firstName']." ".$value['lastName'];
+									echo "<a href=class.php>" .$value['firstName'] ." ". $value['lastName']."</a>";
 									echo '</td>';
 									echo "<td>";
 									echo $value['department'];
