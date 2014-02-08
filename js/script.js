@@ -144,6 +144,10 @@ workload =0;
 function sendClicked(thisObj){
 	words = $('#wordsReview').val();
 	workload = $('#workLoadReview').val();
+	course = $('#course');
+	callNumber = $('#callNumber');
+	instructor = $('#instructor');
+	console.log(course+callNumber+instructor);
     data = ("{helpfulness:"+helpfulness+",clarity:"+clarity+",easiness:"+easiness+",knowledge:"+knowledge+",words:"+words+",workLoad:"+workload+"}");
     $.post( "ajax.php", data);
     

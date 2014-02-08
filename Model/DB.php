@@ -176,10 +176,6 @@ class DB {
 		// return json_encode($json );
 		return $json;
 	}
-
-	
-	
-
 	public function getProfessors() {
 		if (! $query = $this->mysqli->query ( "SELECT id FROM professors" ))
 			
@@ -194,8 +190,7 @@ class DB {
 		if (! $query = $this->mysqli->query ( "UPDATE reviews SET courseNumber='$number', courseName='$name' WHERE id=$id" ))
 			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
 	}
-	
-	public function addProfNameToReview($first, $last,$id) {
+	public function addProfNameToReview($first, $last, $id) {
 		if (! $query = $this->mysqli->query ( "UPDATE reviews SET profFirst='$first', profLast='$last' WHERE id=$id" ))
 			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
 	}
@@ -203,9 +198,7 @@ class DB {
 		if (! $query = $this->mysqli->query ( "UPDATE professors SET department='$department' WHERE id=$id" ))
 			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
 	}
-	
-	public function getReviewsByClassNumberAndProfeesor($classNumber,$prof){
-		
+	public function getReviewsByClassNumberAndProfeesor($classNumber, $prof) {
 		$name = $prof;
 		// split fullname to first and last
 		$delimiter = strpos ( $name, ',' );
@@ -218,20 +211,18 @@ class DB {
 		if ($space != 0)
 			$firstName = substr ( $firstName, 0, $space );
 		
-		if (!$query = $this->mysqli->query ( "SELECT * FROM reviews WHERE courseNumber LIKE '$classNumber' AND profFirst LIKE '$firstName' AND profLast LIKE '$lastName' " ))
-			/*
-			$json = array ();
-		while ( $row = $query->fetch_assoc () ) {
-			$json [] = $row [];
-		}
-		// return json_encode($json );
-		return $json;
-		*/
-		return true;
-		
+		if (! $query = $this->mysqli->query ( "SELECT * FROM reviews WHERE courseNumber LIKE '$classNumber' AND profFirst LIKE '$firstName' AND profLast LIKE '$lastName' " ))
+                                                                                          /*
+                                                                                           $json = array ();
+                                                                                           while ( $row = $query->fetch_assoc () ) {
+                                                                                           $json [] = $row [];
+                                                                                           }
+                                                                                           // return json_encode($json );
+                                                                                           return $json;
+                                                                                           */
+                                                                                          return true;
 	}
-	
 }
-	
-	
+                                                                                          
+                                                                                          
 	
