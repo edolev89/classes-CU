@@ -146,7 +146,7 @@ function sendClicked(thisObj){
 	words = $('#wordsReview').val();
 	workload = $('#workLoadReview').val();
 	courseName = $('#course').html();
-	courseNumber = $('#courseNumber').html();
+	courseNumber = $('#callNumber').html();
 	instructor = $('#instructor').html();
 	commaidx = instructor.indexOf(',');
 	last = instructor.substring(0,commaidx);
