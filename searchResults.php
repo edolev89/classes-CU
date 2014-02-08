@@ -123,7 +123,7 @@ include ('Controller/searchResultsCode.php');
 										echo "<td>$value->Course</td>";
 										echo "<td>$section->CallNumber</td>";
 										echo "<td>$section->MeetsOn1 | $startTime-$endTime</td>";
-										echo "<td>$section->Term</td>";
+										echo "<td class=\"text-center\"><span class=\"glyphicon ".termClassPicker($section->Term)."\"></span></td>";
 										echo "<td>";
 										echo $section->professor ['name'];
 										echo '</td>';
