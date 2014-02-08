@@ -2,6 +2,13 @@
 float:right !important;	
 }
 
+.cu_img_homepage {
+	width:100px;
+	height=100px;
+	margin-left:10px;
+	margin-right:10px;
+	
+}
 
 .cu_row_header {
 	padding-top:15px;

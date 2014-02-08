@@ -1,6 +1,6 @@
 <?php
 include('Controller/classCode.php');
-
+include('Controller/session.php');
 ?>
 
 
@@ -20,9 +20,6 @@ include('Controller/classCode.php');
 	<!-- bootstrap css-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
    
-	<!-- carousel css -->
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="all" />	
 	
 	<!-- new css-->
 	<link href="css/style.css" rel="stylesheet">
@@ -84,7 +81,7 @@ include('Controller/classCode.php');
 										<form>
 											<div class="modal-header text-left">
 												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-												<h4 class="modal-title id="sendReview">Send it!</h4>
+												<h4 class="modal-title">Submit Review</h4>
 											</div>										
 										  <div class="modal-body text-left">											
 												<div class="container-fluid">
@@ -193,7 +190,7 @@ include('Controller/classCode.php');
 										  </div>
 										  <div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary" data-dismiss="modal" id="sendReview">Send it!</button>
+											<button type="button" class="btn btn-primary" id="sendReview" data-dismiss="modal">Submit Review!</button>
 										  </div>											
 										  </form>
 										</div>
@@ -207,7 +204,7 @@ include('Controller/classCode.php');
 										<tr>
 											<!-- add classes to table cells: A+ success, A info, B and C active, F danger, D warning -->
 											<td class="success">
-												<div class="container-fluid text-center">
+												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
 															<h1>A+</h1>
@@ -221,7 +218,7 @@ include('Controller/classCode.php');
 												</div>														
 											</td>
 											<td class="info">
-												<div class="container-fluid text-center">
+												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
 															<h1>A-</h1>
@@ -235,7 +232,7 @@ include('Controller/classCode.php');
 												</div>														
 											</td>
 										<td class="danger">
-												<div class="container-fluid text-center">
+												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
 															<h1>F</h1>
@@ -249,7 +246,7 @@ include('Controller/classCode.php');
 												</div>														
 											</td>
 										<td class="warning">
-												<div class="container-fluid text-center">
+												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
 															<h1>D</h1>
@@ -263,7 +260,7 @@ include('Controller/classCode.php');
 												</div>														
 											</td>
 										<td class="active">
-												<div class="container-fluid text-center">
+												<div class="container-fluid">
 													<div class="row">
 														<div class="col-lg-12">
 															<h1>B-</h1>
@@ -288,15 +285,15 @@ include('Controller/classCode.php');
 										<tbody>
 											<tr>
 												<td width="25%">Course Number</td>
-												<td id="course"><?php echo $result->Course; ?></td>
+												<td><?php echo $result->Course; ?></td>
 											</tr>
 											<tr>
 												<td>Call Number</td>
-												<td id="courseNumber"><?php echo $result->CallNumber; ?></td>
+												<td><?php echo $result->CallNumber; ?></td>
 											</tr>
 											<tr>
 												<td>Instructor</td>
-												<td id="instructor"><?php echo $result->Instructor1Name ?></td>
+												<td><?php echo $result->Instructor1Name ?></td>
 											</tr>
 											<tr>
 												<td>Description</td>
@@ -314,44 +311,6 @@ include('Controller/classCode.php');
 			<div class="col-lg-1"></div>
 		</div>
 		<!-- end of description panel row -->
-		
-		<!-- friends carousel panel row -->
-		<div class="row">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-10">
-				<div class="panel panel-default cu_panel_search">
-					<div class="panel-heading"><h4>Favorited by...</h4></div>
-					<div class="panel-body">						
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-lg-12" style="padding-right:30px; padding-left:25px;">
-									<div id="ca-container" class="ca-container">
-										<div class="ca-wrapper">
-										<!-- temp loop for thumbs -->
-										<?
-										for($i = 0; $i < 20; $i++) {
-
-											echo	"<div class=\"ca-item\">";
-											echo		"<div class=\"ca-item-main\">";
-											echo			"<img src=\"files/roy.jpg\" alt=\"...\" class=\"img-homepage img-thumbnail ca-thumb\">";
-											echo		"</div>";
-											echo	"</div>";
-
-										}
-										?>
-										</div>
-									</div>
-								<!-- temp loop for thumbs -->									
-								</div>								
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-1"></div>
-		</div>
-		<!-- end of friends carousel panel row -->		
-		
 		<!-- reviews panel row-->
 		<div class="row">
 			<div class="col-lg-1"></div>
@@ -517,15 +476,5 @@ The midterm was really hard.
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-	
-	<!-- carousel js -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-	<!-- the jScrollPane script -->
-	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-	<script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
-	<script type="text/javascript">
-		$('#ca-container').contentcarousel();
-	</script>	
   </body>
 </html>

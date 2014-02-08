@@ -1,24 +1,22 @@
 <?php
-include('DB.php');
+include('Model/DB.php');
 
 
 $db=  new DB();
 
-echo('hello');
-echo($_POST['courseNumber']);
-echo($_POST['courseName']);
-echo($_POST['profFirst']);
-echo($_POST['profLast']);
-echo($_POST['workLoad']);
-echo($_POST['helpfulness']);
-echo($_POST['clarity']);
-echo($_POST['easiness']);
-echo($_POST['knowledge']);
-echo($_POST['words']);
+$courseNumber = $_POST['courseNumber'];
+$courseName=$_POST['courseName'];
+$firstName=$_POST['firstName'];
+$lastName=$_POST['lastName'];
+$workLoad=$_POST['workLoad'];
+$helpfulness=$_POST['helpfulness'];
+$clarity=$_POST['clarity'];
+$easiness=$_POST['easiness'];
+$knowledge=$_POST['knowledge'];
+$review=$_POST['words'];
 
 
-
-
-    $db->addUser($user_profile['id'], $user_profile['first_name'], $user_profile['last_name'], $user_profile['email']);
+//$db->addReview($cnumber,$cname,$workload,$help,$clar,$easy,$knowledge);
+$db->addReview($_POST['courseNumber'], $_POST['courseName'],$_POST['workLoad'],$review, $_POST['helpfulness'], $_POST['clarity'],$_POST['easiness'],$_POST['knowledge']);
 
 ?>

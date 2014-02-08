@@ -142,14 +142,23 @@ function starClicked(thisObj){
 words =0;
 workload =0;
 function sendClicked(thisObj){
+	console.log('send clicked');
 	words = $('#wordsReview').val();
 	workload = $('#workLoadReview').val();
-	course = $('#course');
-	callNumber = $('#callNumber');
-	instructor = $('#instructor');
-	console.log(course+callNumber+instructor);
-    data = ("{helpfulness:"+helpfulness+",clarity:"+clarity+",easiness:"+easiness+",knowledge:"+knowledge+",words:"+words+",workLoad:"+workload+"}");
-    $.post( "ajax.php", data);
+	courseName = $('#course').html();
+	courseNumber = $('#courseNumber').html();
+	instructor = $('#instructor').html();
+	commaidx = instructor.indexOf(',');
+	last = instructor.substring(0,commaidx);
+	first = instructor.substring(commaidx+1);
+    data = ("{helpfulness:"+helpfulness+",clarity:"+clarity+",easiness:"+easiness+",knowledge:"+knowledge+",words:"+words+",workLoad:"+workload+",courseName:"+courseName+",callNumber:"+courseNumber+",instructor:"+instructor+"firstName:"+first+",lastName:"+last+",words:"+words+"}");
+    console.log(data);
+    $.ajax({
+    	  type: "POST",
+    	  url: ajax.php,
+    	  data: data,    	  
+    	});
+   
     
 }
 
