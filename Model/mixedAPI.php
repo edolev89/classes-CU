@@ -63,13 +63,59 @@ public function getClassesByID($id,$limit)
 	
 }
 
+
+public function getClassesByCallNumber($call,$limit)
+{
+	if($result = $this->api->getClassesByCallNumber($call, $limit))
+		return $result;
+		//return $this->addProfessorsInfoToQuery($result);
+		
+	else
+		return false;
+
+
+}
+
+
+public function getClassesByCallAndProfessorAndTerm($call,$profName,$term,$limit){
+	
+	$callResults = $this->getClassesByCallNumber($call, $limit);
+	$profResults = $this->getClassesByProfessor($profName, $limit);
+	$returnVal;
+	
+	//we have to make sure that we get the same class the user cliked on the search result,
+	// comparing professor, term and term	
+	foreach($callResults as $callClass){
+		
+		foreach($profResults as $profClass){
+			
+			if($callClass->CallNumber == $profClass->CallNumber && $term == $callClass->Term){
+				$returnVal = $callClass;
+				break 2;
+			}
+				//return $callClass;
+
+			
+		}
+		
+	}
+	
+	return $returnVal;
+	
+	
+}
+
+public function getReviewsByClassNumberAndProfeesor($classNumber,$prof){
+	
+	return $this->db->getReviewsByClassNumberAndProfeesor($classNumber,$prof);
+}
+
 public function getProfessorByName($name,$limit)
 {
 	if($result = $this->db->getProfessorsByName($name,$limit))
 		return $result;
 	else
 		return false;
-
 
 }
 

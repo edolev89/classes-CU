@@ -23,6 +23,12 @@ class classesAPI
 		return $this->call("courses", array("professor" => $person_name, "limit" => $limit ));
 	}
 	
+	public function getClassesByCallNumber($call,$limit)
+	{
+		return $this->call("courses", array("call_number" => $call, "limit" => $limit ));
+	}
+	
+	
 	public function getClassesByDepartment($department,$limit) 
 	{
 		return $this->call("courses/v2/", array("department" => $department, "limit" => $limit ));
