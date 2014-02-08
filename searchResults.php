@@ -114,11 +114,15 @@ include ('Controller/searchResultsCode.php');
 										else
 											 continue;
 										//print_r($section);
+										
+										$startTime = substr($section->StartTime1,0,5);
+										$endTime =  substr($section->EndTime1,0,5);
+										
 										echo '<tr>';
 										echo "<td>$value->CourseTitle</td>";
 										echo "<td>$value->Course</td>";
 										echo "<td>$section->CallNumber</td>";
-										echo "<td>$section->MeetsOn1 | $section->StartTime1</td>";
+										echo "<td>$section->MeetsOn1 | $startTime-$endTime</td>";
 										echo "<td>$section->Term</td>";
 										echo "<td>";
 										echo $section->professor ['name'];
