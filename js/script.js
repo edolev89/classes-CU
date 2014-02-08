@@ -8,7 +8,25 @@ jQuery( document ).ready(function( $ ) {
                                  $("#searchButtonHeader").click(function(){createSearchQueryHeader($(this));})
                                  $(".ddOption").click(function(){dropDownClicked($(this));})
                                   $(".img-homepage").hover(function(){hoverOverThumbnail($(this));},function(){hoverOffThumbnail($(this));})
-                                  $('li').click(function(){starClicked($(this));})
+                                  $('li').click(function(){starClicked($(this));});
+                                 
+                                 
+                                 //catch enter button
+                                 
+                                 $('#searchInputField').keydown( function(e) {
+                                     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                                     if(key == 13) {
+                                    	 createSearchQuery();
+                                     }
+                                 });
+                                 
+                                 $('#searchInputFieldHeader').keydown( function(e) {
+                                     var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+                                     if(key == 13) {
+                                    	 createSearchQueryHeader();
+                                     }
+                                 });                                
+                          
 });
       
                       
@@ -45,27 +63,23 @@ jQuery( document ).ready(function( $ ) {
     function createSearchQuery(thisObj){
         
         var url;
-        console.log("creatingSearchQuery");
         query = $('#searchInputField').val();
         type = $('#dropDownButton').text();
-        type = type.replace(" ","");
-        console.log(type);
+        type = type.replace(/\s/g, "")
         url = "searchResults.php?type="+type+"&query="+query;
         console.log(url);
-        document.location.href=(url.replace(/\s/g, "") )
+        document.location.href=(url)
     }
     
     function createSearchQueryHeader(thisObj){
         
         var url;
-        console.log("creatingSearchQuery");
         query = $('#searchInputFieldHeader').val();
         type = $('#dropDownButtonHeader').text();
-        type = type.replace(" ","");
-        console.log(type);
+        type = type.replace(/\s/g, "")
         url = "searchResults.php?type="+type+"&query="+query;
         console.log(url);
-        document.location.href=(url.replace(/\s/g, "")) ;
+        document.location.href=(url)
     }
     
     
