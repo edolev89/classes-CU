@@ -26,6 +26,11 @@ include('Controller/session.php');
 	<link href="css/cover.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
  	<script src="js/script.js"></script>	
+ 	<script type="text/javascript">
+
+	var user = <?php echo $user;	?>
+
+ 	</script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -66,10 +71,10 @@ include('Controller/session.php');
 							<div class="row text-center">
 								<div class="col-lg-2" style="padding-top:20px;">
 									<div class="btn-group-vertical">
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" onclick="javascript: addToFaves()">
 											Favorite <span class="glyphicon glyphicon-star"></span> <!-- use glyphicon-star-empty for non-favorited entry-->
 										</button>
-										<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">
+										<button type="button"  class="btn btn-primary" data-toggle="modal" data-target=".bs-modal-lg">
 											Review&nbsp&nbsp<span class="glyphicon glyphicon-pencil"></span>
 										</button>															  
 									</div>		

@@ -141,23 +141,77 @@ function starClicked(thisObj){
 
 words =0;
 workload =0;
-function sendClicked(thisObj){
-	console.log('send clicked');
+function sendClicked(){
+	
 	words = $('#wordsReview').val();
 	workload = $('#workLoadReview').val();
+	courseName = $('#course').html();
+	courseNumber = $('#callNumber').html();
+	instructor = $('#instructor').html();
+	
+	commaidx = instructor.indexOf(',');
+	last = instructor.substring(0,commaidx);
+	first = instructor.substring(commaidx+1);
+    /*
+    console.log(data);
+*/
+	$.ajax({
+		type : "POST",
+		url : "ajax.php",
+		async : false,
+		data : {
+			review : true,
+			helpfulness: helpfulness,
+			clarity: clarity,
+			easiness: easiness,
+			knowledge: knowledge,
+			words: words,
+			workload: workload,
+			courseName: courseName,
+			courseNumber: courseNumber,
+			instructor: instructor,
+			first: first,
+			last: last,
+			words: words
+		}
+	}).done(
+			function(msg) {
+				console.log("User add to favorites talk " 
+						+ " server replied: " + msg)
+			});
+   
+    
+}
+
+
+
+function addToFaves(){
+
 	courseName = $('#course').html();
 	courseNumber = $('#callNumber').html();
 	instructor = $('#instructor').html();
 	commaidx = instructor.indexOf(',');
 	last = instructor.substring(0,commaidx);
 	first = instructor.substring(commaidx+1);
-    data = ("{helpfulness:"+helpfulness+",clarity:"+clarity+",easiness:"+easiness+",knowledge:"+knowledge+",words:"+words+",workLoad:"+workload+",courseName:"+courseName+",callNumber:"+courseNumber+",instructor:"+instructor+"firstName:"+first+",lastName:"+last+",words:"+words+"}");
-    console.log(data);
-    $.ajax({
-    	  type: "POST",
-    	  url: ajax.php,
-    	  data: data,    	  
-    	});
+
+	
+	$.ajax({
+		type : "POST",
+		url : "ajax.php",
+		async : false,
+		data : {
+			favorites: true,
+			courseName : courseName,
+			courseNumber : courseNumber,
+			firstName: first,
+			lastName: last,
+			id: user
+		}
+	}).done(
+			function(msg) {
+				console.log("User add to favorites talk " 
+						+ " server replied: " + msg)
+			});
    
     
 }
