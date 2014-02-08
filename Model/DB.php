@@ -187,27 +187,10 @@ class DB {
 		
 	}
 
-}
+
 	
 	
-	s to an array
-			$json = array ();
-		$i = 0;
-		
-		while ( $row = $query->fetch_assoc () ) {
-			// add row data to json
-			$json [] = $row;
-			
-			// get the profesoor name into the json too
-			$id = $json [$i] ['professorID'];
-			$json [$i] ['name'] = $this->getProfessorNameByID ( $id );
-			
-			$i ++;
-		}
-		
-		// return json_encode($json );
-		return $json;
-	}
+
 	public function getReviews() {
 		if (! $query = $this->mysqli->query ( "SELECT id FROM reviews LIMIT 4230" ))
 			
