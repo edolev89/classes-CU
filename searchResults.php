@@ -2,7 +2,7 @@
     include('Controller/searchResultsCode.php');
     
     ?>
-
+ 
 
 
 <!DOCTYPE html>
