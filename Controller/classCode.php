@@ -35,7 +35,7 @@ else
 
 
 $result = $api->getClassesByCallAndProfessorAndTerm($call,$prof,$term,10);
-$reviews = $api->getReviewsByClassNumberAndProfeesor($classNumber,$prof);
+//$reviews = $api->getReviewsByClassNumberAndProfeesor($classNumber,$prof);
 
 var_dump($reviews);
 ?>
