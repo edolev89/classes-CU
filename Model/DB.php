@@ -161,11 +161,11 @@ class DB {
 		return $json;
 	}
 	public function getReviews() {
-		if (! $query = $this->mysqli->query ( "SELECT id FROM reviews" ))
+		if (! $query = $this->mysqli->query ( "SELECT id FROM reviews LIMIT 4230" ))
 			
 			$json = array ();
 		while ( $row = $query->fetch_assoc () ) {
-			$json [] = $row [id];
+			$json [] = $row ['id'];
 		}
 		// return json_encode($json );
 		return $json;
@@ -184,10 +184,43 @@ class DB {
 		if (! $query = $this->mysqli->query ( "UPDATE reviews SET courseNumber='$number', courseName='$name' WHERE id=$id" ))
 			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
 	}
+	
+	public function addProfNameToReview($first, $last,$id) {
+		if (! $query = $this->mysqli->query ( "UPDATE reviews SET profFirst='$first', profLast='$last' WHERE id=$id" ))
+			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
+	}
 	public function addDepartmentToProfessor($id, $department) {
 		if (! $query = $this->mysqli->query ( "UPDATE professors SET department='$department' WHERE id=$id" ))
 			echo "INSERT failed: (" . $query->errno . ") " . $query->error;
 	}
+	
+	public function getReviewsByClassNumberAndProfeesor($classNumber,$prof){
+		
+		$name = $prof;
+		// split fullname to first and last
+		$delimiter = strpos ( $name, ',' );
+		$space = strpos ( $name, " ", $delimiter + 1 );
+		$lastName = substr ( $name, 0, $delimiter );
+		$firstName = substr ( $name, ($delimiter + 2) );
+		
+		// if middle name exists remove it
+		$space = strpos ( $firstName, " " );
+		if ($space != 0)
+			$firstName = substr ( $firstName, 0, $space );
+		
+		if (!$query = $this->mysqli->query ( "SELECT * FROM reviews WHERE courseNumber LIKE '$classNumber' AND profFirst LIKE '$firstName' AND profLast LIKE '$lastName' " ))
+			/*
+			$json = array ();
+		while ( $row = $query->fetch_assoc () ) {
+			$json [] = $row [];
+		}
+		// return json_encode($json );
+		return $json;
+		*/
+		return true;
+		
+	}
+	
 }
 	
 	
