@@ -45,6 +45,7 @@
         console.log("creatingSearchQuery");
         query = $('#searchInputField').val();
         type = $('#dropDownButton').text();
+        type = temp.replace(' ',"");
         console.log(type);
         url = "searchResults.php?type="+type+"&query="+query;
         console.log(url);
