@@ -8,8 +8,8 @@ if(isset($_GET["type"]))
 
 if(isset($_GET["query"]))
 	$query = $_GET["query"];
-//else 
-	//die();
+	else 
+	die();
 
 
 /*
@@ -17,26 +17,30 @@ if(isset($_GET["query"]))
  * FOR TESTING 
  * 
  */
-$type = 'instructor';
-$query = 'Jae';
+//$type = 'Instructor';
+//$query = 'Gross';
 
 //END TESTING
 
 switch($type){
 	
-	case 'instructor':
-		$results = $api->getClassesByProfessor($query,10);
+	case 'Instructor':
+		$results = $api->getProfessorByName($query,10);
 		break;
 	
-	case 'courseName':
+	case 'CourseName':
 		$results = $api->getClassesByTitle($query,10);
 		break;
 		
-	case 'courseNumber':
+	case 'CourseNumber':
 		$results = $api->getClassesByID($query,10);
 		break;
 	
 }
+
+if(!$query || !$results) //we got nothing
+	$type = null;
+
 
 
 

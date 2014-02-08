@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-include('Controller/searchResultsCode.php');
+error_reporting ( E_ALL );
+include ('Controller/searchResultsCode.php');
 ?>
 
 
@@ -59,7 +59,7 @@ include('Controller/searchResultsCode.php');
 
 				<h1 class="">
 					Search Results for
-					<?php $type." ".$query ?>
+					<?php echo "$query - [$type]"; ?>
 				</h1>
 				<br>
 				<div class="lead row">
@@ -94,57 +94,70 @@ include('Controller/searchResultsCode.php');
 				<!-- /.row -->
 				<!-- Classes -->
 
-				<?php if($type = 'courseName' || $type = 'courseNumber') {?>
+				<?php if($type == 'CourseName' || $type == 'CourseNumber') {?>
 				<table class="table text-left table-bordered" id="bestClassesTable">
 					<tr>
 						<th>Class Name</th>
 						<th>Class #</th>
+						<th>Call Number</th>
 						<th>Day/Time</th>
 						<th>Instructor</th>
 						<th>Avg. Grade</th>
 					</tr>
-					<?php foreach($results as $result){
-						//print_r($result);
-						//echo '<tr>';
-						//echo "<td>$result['CourseTitle']</td>";
-						//echo "<td>$result['Course']</td>";
-						//echo "<td>$result['StartTime1']</td>";
-						//echo "<td>$result['professor']['name']</td>";
-						echo "<td>A+</td>";
-						echo '</tr>';
+					<?php
+					
+					foreach ( $results as $key => $value ) {	
+						foreach ( $value->Sections as $pey => $section ) { //print all sections
+							
+							echo '<tr>';
+							echo "<td>$value->CourseTitle</td>";
+							echo "<td>$value->Course</td>";
+							echo "<td>$section->CallNumber</td>";
+							echo "<td>$section->StartTime1</td>";
+							echo "<td>";
+							echo $section->professor ['name'];
+							echo '</td>';
+							echo "<td>A+</td>";
+							echo '</tr>';
+						}
 					}
 					?>
 					</tr>
 				</table>	
-				<?php }?>			
+				<?php }?>	
+						
 				<!-- Professors -->
+				<?php if($type == 'Instructor') {?>
 				<table class="table text-left table-bordered"
-					id="bestProfessorsTable" style="display: none;">
+					id="bestProfessorsTable" style="">
 					<tr>
 						<th>Instructor</th>
 						<th>Department</th>
 						<th># of Graders</th>
 						<th>Overall Grade</th>
 					</tr>
-					<tr>
-						<td>Jae W Lee</td>
-						<td>CS</td>
-						<td>12</td>
-						<td>A+</td>
-					</tr>
-					<tr>
-						<td>Rodelfo Tanzki</td>
-						<td>Humanities</td>
-						<td>8</td>
-						<td>A+</td>
-					</tr>
-					<tr>
-						<td>Daniel Fitzpatrick</td>
-						<td>ENGL</td>
-						<td>10</td>
-						<td>A+</td>
-					</tr>
+					<?php
+					
+foreach ( $results as $key => $value ) {
+						// print_r($value);
+						echo '<tr>';
+						echo "<td>";
+						echo $value['firstName']." ".$value['lastName'];
+						echo '</td>';
+						echo "<td>";
+						echo $value['department'];
+						echo "</td>";
+						echo "<td>";
+						echo $value['numOfGraders'];
+						echo "</td>";
+						echo "<td>";
+						echo $value['nugget'];
+						echo "</td>";
+						echo '</tr>';
+					}
+					?>
 				</table>
+				<?php }?>	
 			</div>
 			<div class="mastfoot">
 				<div class="inner">

@@ -1,5 +1,5 @@
   <?php
-define ("F_DEBUG_MODE", true);
+define ("F_DEBUG_MODE", false);
 
 class classesAPI
 {	
@@ -57,7 +57,7 @@ class classesAPI
 	
     protected function call($method, $params = array())
     {
- 		print_r($params);
+ 		//print_r($params);
     	$params["pretty"] = "true";
     	
     	$params = array_merge($this->auth_params, $params);

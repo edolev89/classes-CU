@@ -5,6 +5,8 @@ include('phpQuery-onefile.php');
 
 $db= new DB();
 
+
+/*
 $reviewsId = array();
 $reviewsId = $db->getReviews();
 
@@ -29,5 +31,29 @@ foreach($reviewsId as $review){
 	echo "  |  ";
 	ob_flush();
 	//usleep(100);
+}
+
+*/
+
+
+
+$professorID = array();
+$professorID = $db->getProfessors();
+
+foreach($professorID as $professor){
+	
+	$file = file_get_contents("http://culpa.info/professors/$professor");
+	phpQuery::newDocument($file);
+	$professorsDep = pq('.review_this')->next()->next();
+	$professorsDep = $professorsDep->elements[0]->nodeValue;
+	//print_r($professorsDep);
+	$professorsDep = str_replace("Departments:", "", $professorsDep);
+	$professorsDep = str_replace("and", ",", $professorsDep);
+	$professorsDep = str_replace(", ,", ",", $professorsDep);
+	$professorsDep = str_replace("\n", "", $professorsDep);
+	$professorsDep = str_replace("\t", "", $professorsDep);
+	$db->addDepartmentToProfessor($professor, $professorsDep);
+	echo $professorsDep;
+	
 }
 ?>

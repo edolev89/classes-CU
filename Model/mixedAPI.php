@@ -25,36 +25,50 @@ public function getClassesByProfessor($person_name,$limit)
 	
 	if($result = $this->api->getClassesByProfessor($person_name, $limit)) //we have a result
 		return $this->addProfessorsInfoToQuery($result);
+	else 
+		return false;
 	
 
 }
 
 public function getClassesByDepartment($department,$limit)
 {
-	$result = $this->api->getClassesByDepartment($department, $limit);
-	return $this->addProfessorsInfoToQuery($result);
-	
+	if($result = $this->api->getClassesByDepartment($department, $limit)) //we have a result
+		return $this->addProfessorsInfoToQuery($result);
+	else 
+		return false;
 	
 }
 
 public function getClassesByTitle($title,$limit)
 {
 
-	$result = $this->api->getClassesByTitle($title, $limit);
-	return $this->addProfessorsInfoToQuery($result);
-	
+	if($result = $this->api->getClassesByTitle($title, $limit))
+		return $this->addProfessorsInfoToQuery($result);
+	else
+		return false;
 	
 	
 }
 
 public function getClassesByID($id,$limit)
 {
-	$result = $this->api->getClassesByID($id, $limit);
+	if($result = $this->api->getClassesByID($id, $limit))
+		return $this->addProfessorsInfoToQuery($result);
+	else
+		return false;
+	
+	
+}
 
-	return $this->addProfessorsInfoToQuery($result);
-	
-	
-	
+public function getProfessorByName($name,$limit)
+{
+	if($result = $this->db->getProfessorsByName($name,$limit))
+		return $result;
+	else
+		return false;
+
+
 }
 
 public function getTopProfessors($limit){
