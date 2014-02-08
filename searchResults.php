@@ -95,6 +95,7 @@ include ('Controller/searchResultsCode.php');
 										<th>Class #</th>
 										<th>Call Number</th>
 										<th>Day/Time</th>
+										<th>Term</th>
 										<th>Instructor</th>
 										<th>Avg. Grade</th>								
 									</tr>
@@ -111,13 +112,14 @@ include ('Controller/searchResultsCode.php');
 										if(array_search($section->professor ['name'], $professorsTeaching) === false)
 											$professorsTeaching[] = $section->professor ['name']; // add the professor teaching
 										else
-											continue;
-										
+											 continue;
+										//print_r($section);
 										echo '<tr>';
 										echo "<td>$value->CourseTitle</td>";
 										echo "<td>$value->Course</td>";
 										echo "<td>$section->CallNumber</td>";
-										echo "<td>$section->StartTime1</td>";
+										echo "<td>$section->MeetsOn1 | $section->StartTime1</td>";
+										echo "<td>$section->Term</td>";
 										echo "<td>";
 										echo $section->professor ['name'];
 										echo '</td>';
