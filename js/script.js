@@ -45,7 +45,7 @@
         console.log("creatingSearchQuery");
         query = $('#searchInputField').val();
         type = $('#dropDownButton').text();
-        type = temp.replace(' ',"");
+        type = type.replace(" ","");
         console.log(type);
         url = "searchResults.php?type="+type+"&query="+query;
         console.log(url);
@@ -53,7 +53,6 @@
     }
     function dropDownClicked(thisObj){
         
-        console.log("ddOptions clicked ="+thisObj[0].innerHTML);
         temp = $('#dropDownButton').html();
         temp = temp.replace('<span class="caret"></span>',"");
         $('#dropDownButton').html(thisObj[0].innerHTML+'<span class="caret"></span>');
