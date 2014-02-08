@@ -78,16 +78,16 @@ include ('Controller/indexCode.php');
 					  </ul>
 					  <form class="navbar-form navbar-left" role="search">
 						<div class="input-group" style="max-width:100px;">
-							<input type="text" placeholder="Search by..." id="searchInputField" class="form-control">
+							<input type="text" placeholder="Search by..." id="searchInputFieldHeader" class="form-control">
 							<div class="input-group-btn">
-								<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButton" data-toggle="dropdown">
+								<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButtonHeader" data-toggle="dropdown">
 									Instructor&nbsp<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu pull-right">									
 									<li><a class="ddOption" href="#">Course Name&nbsp</a></li>
 									<li><a class="ddOption" href="#">Course Number&nbsp</a></li>
 								</ul>
-								<button type="button" class="btn btn-info" id="searchButton">
+								<button type="button" class="btn btn-info" id="searchButtonHeader">
 									<span class="glyphicon glyphicon-search"></span>
 								</button>						
 							</div>

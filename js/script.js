@@ -5,6 +5,7 @@ jQuery( document ).ready(function( $ ) {
                                  $("#bestTeachersButton").click(function(){showBestTeachers($(this));})
                                  $("#easiestClassesButton").click(function(){showEasiestClasses($(this));})
                                  $("#searchButton").click(function(){createSearchQuery($(this));})
+                                 $("#searchButtonHeader").click(function(){createSearchQueryHeader($(this));})
                                  $(".ddOption").click(function(){dropDownClicked($(this));})
                                   $(".img-homepage").hover(function(){hoverOverThumbnail($(this));},function(){hoverOffThumbnail($(this));})
                                   $('li').click(function(){starClicked($(this));})
@@ -40,6 +41,7 @@ jQuery( document ).ready(function( $ ) {
         thisObj.addClass('btn-default-selected').removeClass('btn-primary');
         thisObj.addClass('btn-default-selected').removeClass('btn-primary');
     }
+    
     function createSearchQuery(thisObj){
         
         var url;
@@ -50,8 +52,24 @@ jQuery( document ).ready(function( $ ) {
         console.log(type);
         url = "searchResults.php?type="+type+"&query="+query;
         console.log(url);
-        document.location.href=url;
+        document.location.href=(url.replace(/\s/g, "") )
     }
+    
+    function createSearchQueryHeader(thisObj){
+        
+        var url;
+        console.log("creatingSearchQuery");
+        query = $('#searchInputFieldHeader').val();
+        type = $('#dropDownButtonHeader').text();
+        type = type.replace(" ","");
+        console.log(type);
+        url = "searchResults.php?type="+type+"&query="+query;
+        console.log(url);
+        document.location.href=(url.replace(/\s/g, "")) ;
+    }
+    
+    
+    
     function dropDownClicked(thisObj){
         
         temp = $('#dropDownButton').html();
