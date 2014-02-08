@@ -1,7 +1,7 @@
 <?php
-    include('Controller/indexCode.php');
-    
-    ?>
+include ('Controller/indexCode.php');
+
+?>
 
 
 
@@ -40,6 +40,7 @@
 
 
 
+<<<<<<< HEAD
 <div class="site-wrapper">
 
 <div class="site-wrapper-inner">
@@ -110,120 +111,177 @@ id="easiestClassesButton">Easy-A</button>
 <th>Instructor</th>
 <th>Overall Grade</th>
 </tr>
+=======
+	<div class="site-wrapper">
+
+		<div class="site-wrapper-inner">
+
+			<div class="cover-container">
+
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">
+							<A href="home.html">CUReview</a>
+						</h3>
+						<ul class="nav masthead-nav">
+							<li class="active"><a href="#">Social</a></li>
+							<li><a href="#">Log out</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<h1 class="">CUReview</h1>
+				<br>
+				<div class="lead row">
+					<div class="col-lg-2"></div>
+					<div class="col-lg-8">
+						<div class="input-group">
+							<input type="text" placeholder="Search by..."
+								id="searchInputField" class="form-control">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									id="dropDownButton" data-toggle="dropdown">
+									Instructor<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu pull-right">
+									<li><a class="ddOption" href="#">Department</a></li>
+									<li><a class="ddOption" href="#">Course Name</a></li>
+									<li><a class="ddOption" href="#">Course Number</a></li>
+								</ul>
+							</div>
+							<!-- /btn-group -->
+						</div>
+						<!-- /input-group -->
+					</div>
+					<!-- /.col-lg-8 -->
+					<div class="col-lg-2">
+						<button type="button" class="btn btn-info" id="searchButton"
+							style="margin-left: -100px;">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</div>
+				</div>
+				<!-- /.row -->
+
+
+				<!-- Standard button -->
+				<button type="button" class="btn btn-default-selected"
+					id="bestClassesButton">Best Classes</button>
+				<button type="button" class="btn btn-primary"
+					id="bestTeachersButton">Best Instructors</button>
+				<button type="button" class="btn btn-primary"
+					id="easiestClassesButton">Easy-A</button>
+				<!--<button type="button" class="btn btn-primary">Our Picks</button>-->
+				<!-- Best Classes Table -->
+				<table class="table text-left table-bordered" id="bestClassesTable">
+					<tr>
+						<th>Class Name</th>
+						<th>Department</th>
+						<th>Instructor</th>
+						<th>Overall Grade</th>
+					</tr>
+>>>>>>> dbf3124823922a78fc77936a0a0f77f801c3f41d
 <?php
-    
-    
-    foreach($topClasses as $key => $value) {
-        
-        echo '<tr>';
-        echo "<td>$value[className]</td>";
-        echo "<td>$value[department]</td>";
-        echo "<td>$value[name]</td>";
-        echo '<td>A+</td>';
-        echo '</tr>';
-        
-    }
-    
-    
-    
-    
-    
-    ?>
+
+foreach ( $topClasses as $key => $value ) {
+	
+	echo '<tr>';
+	echo "<td>$value[className]</td>";
+	echo "<td>$value[department]</td>";
+	echo "<td>$value[name]</td>";
+	echo '<td>A+</td>';
+	echo '</tr>';
+}
+
+?>
 
 
 
 
 
 </table>
-<!-- Best Professors Table -->
-<table class="table text-left table-bordered"
-id="bestProfessorsTable" style="display: none;">
-<tr>
-<th>Instructor</th>
-<th>Culpa Nugget</th>
-<th>Rating</th>
-<th># of Graders</th>
-</tr>
+				<!-- Best Professors Table -->
+				<table class="table text-left table-bordered"
+					id="bestProfessorsTable" style="display: none;">
+					<tr>
+						<th>Instructor</th>
+						<th>Culpa Nugget</th>
+						<th>Rating</th>
+						<th># of Graders</th>
+					</tr>
 
 <?php
-    
-    
-    foreach($topProfessors as $key => $value) {
-        
-        echo '<tr>';
-        echo "<td>$value[firstName] $value[lastName]</td>";
-        echo "<td>$value[nugget]</td>";
-        echo "<td>$value[param1Average]</td>";
-        echo "<td>$value[numOfGraders]</td>";
-        echo '</tr>';
-        
-    }
-    
-    
-    
-    
-    
-    ?>
+
+foreach ( $topProfessors as $key => $value ) {
+	
+	echo '<tr>';
+	echo "<td>$value[firstName] $value[lastName]</td>";
+	echo "<td>$value[nugget]</td>";
+	echo "<td>$value[param1Average]</td>";
+	echo "<td>$value[numOfGraders]</td>";
+	echo '</tr>';
+}
+
+?>
 
 
 
 </table>
-<!-- Easiest Classes -->
-<table class="table text-left table-bordered"
-id="easiestClassesTable" style="display: none;">
-<tr>
-<th>Class Name</th>
-<th>Department</th>
-<th>Instructor</th>
-<th>Easiness Grade</th>
-</tr>
+				<!-- Easiest Classes -->
+				<table class="table text-left table-bordered"
+					id="easiestClassesTable" style="display: none;">
+					<tr>
+						<th>Class Name</th>
+						<th>Department</th>
+						<th>Instructor</th>
+						<th>Easiness Grade</th>
+					</tr>
 
 <?php
-    foreach($easyAClasses as $key => $value) {
-        
-        echo '<tr>';
-        echo "<td>$value[className]</td>";
-        echo "<td>$value[department]</td>";
-        echo "<td>$value[name]</td>";
-        echo "<td>$value[easyA]</td>";
-        echo '</tr>';
-    }
-    ?>
+foreach ( $easyAClasses as $key => $value ) {
+	
+	echo '<tr>';
+	echo "<td>$value[className]</td>";
+	echo "<td>$value[department]</td>";
+	echo "<td>$value[name]</td>";
+	echo "<td>$value[easyA]</td>";
+	echo '</tr>';
+}
+?>
 
 
 
 </table>
-</div>
-<!-- social area of screen. displays facebook friends of user -->
-<div class="container">
-<p class="lead">Take a look at your friend's favorite professors and
-classes...</p>
-<img src="files/roy.jpg" alt="..."
-class="img-homepage img-thumbnail"> <img src="files/roy.jpg"
-alt="..." class="img-homepage img-thumbnail"> <img
-src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
-<img src="files/roy.jpg" alt="..."
-class="img-homepage img-thumbnail"> <img src="files/roy.jpg"
-alt="..." class="img-homepage img-thumbnail">
-</div>
-<div class="mastfoot">
-<div class="inner">
-<!-- bottom area of screen -->
-</div>
-</div>
+			</div>
+			<!-- social area of screen. displays facebook friends of user -->
+			<div class="container">
+				<p class="lead">Take a look at your friend's favorite professors and
+					classes...</p>
+				<img src="files/roy.jpg" alt="..."
+					class="img-homepage img-thumbnail"> <img src="files/roy.jpg"
+					alt="..." class="img-homepage img-thumbnail"> <img
+					src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail"> <img
+					src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail"> <img
+					src="files/roy.jpg" alt="..." class="img-homepage img-thumbnail">
+			</div>
+			<div class="mastfoot">
+				<div class="inner">
+					<!-- bottom area of screen -->
+				</div>
+			</div>
 
-</div>
+		</div>
 
-</div>
+	</div>
 
-</div>
+	</div>
 
-<!-- Bootstrap core JavaScript
+	<!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+	<!-- Placed at the end of the document so the pages load faster -->
 
 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/docs.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/docs.min.js"></script>
 </body>
 </html>

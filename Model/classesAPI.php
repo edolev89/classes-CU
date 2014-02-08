@@ -86,9 +86,10 @@ class classesAPI
 			$result = json_decode($data);
 		}
 		
-		if($result->status_code !="200")
+		if($result->status_code !="200"){
 				echo "error, status code: ".$result->status_code;
-		
+				return false;
+		}
 		return $result->data;
 
     }

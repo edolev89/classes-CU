@@ -2,7 +2,7 @@
     include('Controller/searchResultsCode.php');
     
     ?>
-
+ 
 
 
 <!DOCTYPE html>
@@ -79,7 +79,9 @@
                             </button>
                         </div>
                     </div><!-- /.row -->
-
+					<!-- Classes -->
+					
+					<?php if($type = 'courseName' || $type = 'courseNumber') {?>
                     <table class="table text-left table-bordered" id="bestClassesTable">
                         <tr>
                             <th>Class Name</th>
@@ -89,32 +91,21 @@
                             <th>Instructor</th>
                             <th>Avg. Grade</th>
                         </tr>
-                        <tr>
-                            <td>Advanced Programming</td>
-                            <td>COMS3157</td>
-                            <td>TR 4:10 - 5:25PM</td>
-                            <td>002</td>
-                            <td>Jae Lee</td>
-                            <td>A+</td>
-                        </tr>
-                        <tr>
-                            <td>Advanced Programming</td>
-                            <td>COMS3157</td>
-                            <td>TR 4:10 - 5:25PM</td>
-                            <td>002</td>
-                            <td>Jae Lee</td>
-                            <td>A+</td>
-                        </tr>
-                        <tr>
-                            <td>Advanced Programming</td>
-                            <td>COMS3157</td>
-                            <td>TR 4:10 - 5:25PM</td>
-                            <td>002</td>
-                            <td>Jae Lee</td>
-                            <td>A+</td>
+                      <?php foreach($results as $result)
+                      	print_r($result);
+
+				        echo '<tr>';
+				        echo "<td>$result[courseTitle]</td>";
+				        echo "<td>$value[department]</td>";
+				        echo "<td>$value[name]</td>";
+				        echo '<td>A+</td>';
+				        echo '</tr>';
+				        
+                        ?>
                         </tr>
                     </table>
-                    <!-- Best Professors Table -->
+                    <?php }?>
+                    <!-- Professors -->
                     <table class="table text-left table-bordered" id="bestProfessorsTable" style="display:none;">
                         <tr>
                             <th>Instructor</th>

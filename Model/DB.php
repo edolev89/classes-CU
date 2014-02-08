@@ -6,8 +6,8 @@ define ( "param1Average", "param1Average" );
 class DB {
 	private $mysqli;
 	public function __construct() {
-		 $this->mysqli = new mysqli("localhost", "root", "password", "classesCU");
-		//$this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
+		 //$this->mysqli = new mysqli("localhost", "root", "password", "classesCU");
+		$this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
 		
 		
 		if ($this->mysqli->connect_error) {
