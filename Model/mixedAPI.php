@@ -23,8 +23,8 @@ class mixedApi
 public function getClassesByProfessor($person_name,$limit)
 {
 	
-	$result = $this->api->getClassesByProfessor($person_name, $limit);
-	return $this->addProfessorsRatingToQuery($result);
+	if($result = $this->api->getClassesByProfessor($person_name, $limit)) //we have a result
+		return $this->addProfessorsInfoToQuery($result);
 	
 
 }
@@ -32,7 +32,7 @@ public function getClassesByProfessor($person_name,$limit)
 public function getClassesByDepartment($department,$limit)
 {
 	$result = $this->api->getClassesByDepartment($department, $limit);
-	return $this->addProfessorsRatingToQuery($result);
+	return $this->addProfessorsInfoToQuery($result);
 	
 	
 }
@@ -89,18 +89,18 @@ private function addProfessorsInfoToQuery($query){
 				
 			foreach($value->Sections as $key => $section){
 	
-				$section->professor[name] = $section->Instructor1Name;
-				$section->professor[rating] = $this->db->getProfessorRatingByName($section->professor[name]);
-				$section->professor[id] = $this->db->getProfessorIDByName($section->professor[name]);
+				$section->professor['name'] = $section->Instructor1Name;
+				$section->professor['rating'] = $this->db->getProfessorRatingByName($section->professor['name']);
+				$section->professor['id'] = $this->db->getProfessorIDByName($section->professor['name']);
 				
 			}
 				
 		}
 	
 		else{ //no sections
-			$value->professor[name] = $value->Instructor1Name;
-			$value->professor[rating] = $this->db->getProfessorRatingByName($value->professor[name]);
-			$section->professor[id] = $this->db->getProfessorIDByName($section->professor[name]);
+			$value->professor['name'] = $value->Instructor1Name;
+			$value->professor['rating'] = $this->db->getProfessorRatingByName($value->professor['name']);
+			//$section->professor['id'] = $this->db->getProfessorIDByName($section->professor['name']);
 				
 		}
 	
