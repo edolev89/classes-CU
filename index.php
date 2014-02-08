@@ -68,8 +68,7 @@ include ('Controller/indexCode.php');
 						  <a href="#" class="dropdown-toggle" data-toggle="dropdown">My CURe <b class="caret"></b></a>
 						  <ul class="dropdown-menu">
 							<li><a href="#">My Favorites</a></li>
-							<li><a href="#">Friends' Picks</a></li>                                   
-							<li><a href="#">One more separated link</a></li>
+							<li><a href="#">Friends' Picks</a></li>                                   							
 						  </ul>
 						</li>
 					  </ul>
@@ -106,7 +105,7 @@ include ('Controller/indexCode.php');
 		<!-- logo row -->
 		<div class="row text-center">			
 			<div class="col-lg-12">
-				<img src="files/CUReviewLogo.png" id="cover-photo" alt="...">
+				<img src="files/CUReviewLogo.png" id="cover-photo" class="lead" alt="...">
 			</div>			
 		</div>
 		<!-- end of logo row -->

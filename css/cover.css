@@ -9,6 +9,14 @@ a:hover {
   color: #fff;
 }
 
+/* cover photo customization */
+#cover-photo{
+	width:50%;
+	height:50%;
+	margin-top:20px;
+	margin-bottom:40px;	
+	
+}
 /* Custom default button */
 .btn-default,
 .btn-default:hover,
@@ -51,7 +59,7 @@ color: #fff;
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100%;    
   background-color: #333;
   color: #fff;  
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
