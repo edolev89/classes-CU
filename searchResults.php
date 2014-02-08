@@ -102,8 +102,16 @@ include ('Controller/searchResultsCode.php');
 								<tbody>
 								<?php
 								
+								$professorsTeaching = array();
 								foreach ( $results as $key => $value ) {	
 									foreach ( $value->Sections as $pey => $section ) { //print all sections
+										
+										//make sure we only show one section per professor
+										
+										if(array_search($section->professor ['name'], $professorsTeaching) === false)
+											$professorsTeaching[] = $section->professor ['name']; // add the professor teaching
+										else
+											continue;
 										
 										echo '<tr>';
 										echo "<td>$value->CourseTitle</td>";
@@ -115,6 +123,8 @@ include ('Controller/searchResultsCode.php');
 										echo '</td>';
 										echo "<td>A+</td>";
 										echo '</tr>';
+										
+										
 									}
 								}
 								?>

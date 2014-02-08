@@ -8,8 +8,8 @@ if(isset($_GET["type"]))
 
 if(isset($_GET["query"]))
 	$query = $_GET["query"];
-//	else 
-//		die();
+	else 
+		die();
 
 
 /*
@@ -17,8 +17,8 @@ if(isset($_GET["query"]))
  * FOR TESTING 
  * 
  */
-$type = 'ClassName';
-$query = 'Advanced';
+//$type = 'ClassName';
+//$query = 'Advanced';
 
 //END TESTING
 

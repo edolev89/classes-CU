@@ -51,6 +51,8 @@ public function getClassesByTitle($title,$limit)
 	
 }
 
+
+
 public function getClassesByID($id,$limit)
 {
 	if($result = $this->api->getClassesByID($id, $limit))

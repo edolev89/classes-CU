@@ -106,7 +106,7 @@ jQuery( document ).ready(function( $ ) {
     }
     function starClicked(thisObj){
         console.log("star clicked");
-        alert("Index: " + thisObj.index());
+        //alert("Index: " + thisObj.index());
         thisObj.append("<b></b>");
         
     }
