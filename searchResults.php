@@ -123,7 +123,7 @@ include ('Controller/searchResultsCode.php');
 										$endTime =  substr($section->EndTime1,0,5);
 										
 										echo '<tr>';
-										echo "<td>$value->CourseTitle</td>";
+										echo "<td><a href='class.php'>$value->CourseTitle </a></td>";
 										echo "<td>$value->Course</td>";
 										echo "<td>$section->CallNumber</td>";
 										echo "<td>$section->MeetsOn1 | $startTime-$endTime</td>";
