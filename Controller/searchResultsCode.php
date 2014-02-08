@@ -28,11 +28,11 @@ switch($type){
 		$results = $api->getProfessorByName($query,10);
 		break;
 	
-	case 'CourseName':
+	case 'ClassName':
 		$results = $api->getClassesByTitle($query,10);
 		break;
 		
-	case 'CourseNumber':
+	case 'ClassNumber':
 		$results = $api->getClassesByID($query,10);
 		break;
 	
