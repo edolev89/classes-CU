@@ -75,7 +75,7 @@ include ('Controller/session.php');
 						</li>
 					  </ul>
 					   <ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Log Out</a></li>
+						<li><a href="<?php echo $logoutUrl ?>">Log Out</a></li>
 					  </ul>
 					  <form class="navbar-form navbar-left" role="search">
 						<div class="input-group" style="max-width:100px;">
