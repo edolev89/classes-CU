@@ -1,43 +1,30 @@
 <?php
-    error_reporting( E_ALL );
-    ini_set('display_errors', 1);
+    error_reporting ( E_ALL );
+    ini_set ( 'display_errors', 1 );
     
     define ( "param1Average", "param1Average" );
     class DB {
         private $mysqli;
         public function __construct() {
-            $this->mysqli = new mysqli("localhost", "root", "password", "classesCU");
-            //$this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
-            
+            $this->mysqli = new mysqli ( "localhost", "root", "password", "classesCU" );
+            // $this->mysqli = new mysqli ( "localhost", "root", "root", "classesCU" );
             
             if ($this->mysqli->connect_error) {
                 die ( 'Connect Error (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error );
             }
-            
         }
-        
-        
         public function addUser($id, $firstName, $lastName, $email) {
-            
-            
             $insert = "INSERT IGNORE INTO users (facebookID,email,firstName,lastName) VALUES ($id,'$email','$firstName','$lastName');";
             
-            if(!$query = $this->mysqli->query ($insert))
+            if (! $query = $this->mysqli->query ( $insert ))
                 echo "INSERT failed: (" . $query->errno . ") " . $query->error;
-			
-            
         }
-        public function addReview($courseNumber, $courseName, $profFirst, $profLast,$workload,$param1,$param2,$param3,$param4) {
-            
-            
+        public function addReview($courseNumber, $courseName, $profFirst, $profLast, $workload, $param1, $param2, $param3, $param4) {
             $insert = "INSERT INTO reviews (courseNumber,courseName,profFirst,profLast,workload,param1,param2,param3,param4) VALUES ('$courseNumber', '$courseName', '$profFirst', '$profLast','$workload',$param1,$param2,$param3,$param4)";
             
-            if(!$query = $this->mysqli->query ($insert))
+            if (! $query = $this->mysqli->query ( $insert ))
                 echo "INSERT failed: (" . $query->errno . ") " . $query->error;
-			
-            
         }
-        
         public function getProfessorRatingByName($name) {
             
             // STRICKLAND, DAWN M
@@ -86,23 +73,18 @@
             
             return $row ['id'];
         }
-        
-        public function getProfessorNameByID($id){
-            
+        public function getProfessorNameByID($id) {
             if (! $query = $this->mysqli->query ( "SELECT firstName,lastName FROM professors WHERE `id` = '$id'" ))
                 return false;
             
             $row = $query->fetch_assoc ();
             
-            return $row['firstName']." ".$row['lastName'];
-            
-            
+            return $row ['firstName'] . " " . $row ['lastName'];
         }
-        
         public function getProfessorsByName($name, $limit) {
             if (strpos ( $name, " " )) { // user entered two names
                 $name = explode ( " ", $name );
-				
+                
                 if (! $query = $this->mysqli->query ( "SELECT * FROM professors
                                                      WHERE ((firstName LIKE '$name[0]' AND lastName LIKE '$name[1]') OR
                                                             (firstName LIKE '$name[1]' AND lastName LIKE '$name[0]'))
@@ -115,8 +97,8 @@
                                                      
                                                      if (! $query = $this->mysqli->query ( "SELECT * FROM professors
                                                                                           WHERE (firstName LIKE '$name' OR lastName LIKE '$name')
-                                                                                          ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ));
-                                                                                          
+                                                                                          ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ))
+                                                                                          ;
                                                                                           }
                                                                                           
                                                                                           // get all rows to an array
@@ -127,7 +109,6 @@
                                                                                           // return json_encode($json );
                                                                                           return $json;
                                                                                           }
-                                                                                          
                                                                                           public function getTopProfessors($limit) {
                                                                                           if (! $query = $this->mysqli->query ( "SELECT * FROM professors ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ))
                                                                                           // /return false;
@@ -141,7 +122,6 @@
                                                                                           return $json;
                                                                                           }
                                                                                           public function getTopClasses($limit) {
-                                                                                          
                                                                                           if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY " . param1Average . " DESC LIMIT 0," . $limit . "" ))
                                                                                           // /return false;
                                                                                           
@@ -150,25 +130,21 @@
                                                                                           $i = 0;
                                                                                           
                                                                                           while ( $row = $query->fetch_assoc () ) {
-                                                                                          //add row data to json			
+                                                                                          // add row data to json
                                                                                           $json [] = $row;
                                                                                           
-                                                                                          //get the profesoor name into the json too
-                                                                                          $id = $json[$i]['professorID'];
-                                                                                          $json[$i]['name'] = $this->getProfessorNameByID($id);
+                                                                                          // get the profesoor name into the json too
+                                                                                          $id = $json [$i] ['professorID'];
+                                                                                          $json [$i] ['name'] = $this->getProfessorNameByID ( $id );
                                                                                           
-                                                                                          $i++;
+                                                                                          $i ++;
                                                                                           }
-                                                                                          
-                                                                                          
                                                                                           
                                                                                           // return json_encode($json );
                                                                                           return $json;
                                                                                           }
-                                                                                          
-                                                                                          public function getEasyAClasses($limit){
-                                                                                          //xdebug_break();
-                                                                                          
+                                                                                          public function getEasyAClasses($limit) {
+                                                                                          // xdebug_break();
                                                                                           if (! $query = $this->mysqli->query ( "SELECT * FROM classes ORDER BY easyA  DESC LIMIT 0," . $limit . "" ))
                                                                                           // /return false;
                                                                                           
@@ -177,29 +153,19 @@
                                                                                           $i = 0;
                                                                                           
                                                                                           while ( $row = $query->fetch_assoc () ) {
-                                                                                          //add row data to json
+                                                                                          // add row data to json
                                                                                           $json [] = $row;
                                                                                           
-                                                                                          //get the profesoor name into the json too
-                                                                                          $id = $json[$i]['professorID'];
-                                                                                          $json[$i]['name'] = $this->getProfessorNameByID($id);
+                                                                                          // get the profesoor name into the json too
+                                                                                          $id = $json [$i] ['professorID'];
+                                                                                          $json [$i] ['name'] = $this->getProfessorNameByID ( $id );
                                                                                           
-                                                                                          $i++;
+                                                                                          $i ++;
                                                                                           }
-                                                                                          
-                                                                                          
                                                                                           
                                                                                           // return json_encode($json );
                                                                                           return $json;
-                                                                                          
                                                                                           }
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
-                                                                                          
                                                                                           public function getReviews() {
                                                                                           if (! $query = $this->mysqli->query ( "SELECT id FROM reviews LIMIT 4230" ))
                                                                                           
@@ -210,6 +176,10 @@
                                                                                           // return json_encode($json );
                                                                                           return $json;
                                                                                           }
+                                                                                          
+                                                                                          
+                                                                                          
+                                                                                          
                                                                                           public function getProfessors() {
                                                                                           if (! $query = $this->mysqli->query ( "SELECT id FROM professors" ))
                                                                                           
