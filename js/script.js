@@ -1,12 +1,13 @@
   
 
-        jQuery( document ).ready(function( $ ) {
+jQuery( document ).ready(function( $ ) {
                                  $("#bestClassesButton").click(function(){showBestClasses($(this));})
                                  $("#bestTeachersButton").click(function(){showBestTeachers($(this));})
                                  $("#easiestClassesButton").click(function(){showEasiestClasses($(this));})
                                  $("#searchButton").click(function(){createSearchQuery($(this));})
                                  $(".ddOption").click(function(){dropDownClicked($(this));})
                                   $(".img-homepage").hover(function(){hoverOverThumbnail($(this));},function(){hoverOffThumbnail($(this));})
+                                  $('li').click(function(){starClicked($(this));})
 });
       
                       
@@ -69,6 +70,12 @@
     function hoverOffThumbnail(thisObj){
         console.log("hovering off");
         thisObj.css("background-color", "#fff");
+        
+    }
+    function starClicked(thisObj){
+        console.log("star clicked");
+        alert("Index: " + thisObj.index());
+        thisObj.append("<b></b>");
         
     }
 
