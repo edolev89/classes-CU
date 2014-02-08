@@ -95,7 +95,7 @@ include('Controller/session.php');
 																</div>
 																<div class="row">
 																	<div class="col-lg-12">
-																		<textarea class="textarea cu_textarea" style="height:200px;"></textarea>
+																		<textarea id="wordsReview" class="textarea cu_textarea" style="height:200px;"></textarea>
 																	</div>
 																</div>
 																<div class="row">
@@ -105,7 +105,7 @@ include('Controller/session.php');
 																</div>
 																<div class="row">
 																	<div class="col-lg-12">																																
-																		<textarea class="textarea cu_textarea" style="height:100px;"></textarea>																						
+																		<textarea id="workLoadReview" class="textarea cu_textarea" style="height:100px;"></textarea>																						
 																	</div>
 																</div>
 															</div>															
@@ -285,15 +285,15 @@ include('Controller/session.php');
 										<tbody>
 											<tr>
 												<td width="25%">Course Number</td>
-												<td><?php echo $result->Course; ?></td>
+												<td id="course"><?php echo $result->Course; ?></td>
 											</tr>
 											<tr>
 												<td>Call Number</td>
-												<td><?php echo $result->CallNumber; ?></td>
+												<td id="callNumber"><?php echo $result->CallNumber; ?></td>
 											</tr>
 											<tr>
 												<td>Instructor</td>
-												<td><?php echo $result->Instructor1Name ?></td>
+												<td id="instructor"><?php echo $result->Instructor1Name ?></td>
 											</tr>
 											<tr>
 												<td>Description</td>
