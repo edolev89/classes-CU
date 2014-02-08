@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+	<html lang="en">
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+
+	<title>CUReview - Home</title>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="js/script.js"></script>
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<!-- new css-->
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/cover.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+	<div class="container" style="padding-top:5px;">
+		 
+		 <!-- header row -->
+		 <div class="row cu_row_header">
+			<div class="col-lg-12">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h1 class="cu_header">Search results for "<?php echo "$query"; ?>"</h1>							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-12 text-center">
+							<h3 class="cu_second_header"><small>Or you can search for something else...</small></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		 </div>
+		 <!-- end of header row -->
+		 		
+		<!-- search bar row -->
+		<div class="lead row">
+			<div class="col-lg-3"></div>
+			<div class="col-lg-6">
+				<div class="input-group">
+					<input type="text" placeholder="Search by..." id="searchInputField" class="form-control">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButton" data-toggle="dropdown">
+							Instructor&nbsp<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu pull-right">							
+							<li><a class="ddOption" href="#">Class Name&nbsp</a></li>
+							<li><a class="ddOption" href="#">Class Number&nbsp</a></li>
+						</ul>
+						<button type="button" class="btn btn-info" id="searchButton">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>						
+					</div>
+					<!-- /btn-group -->
+				</div>
+				<!-- /input-group -->
+			</div>
+			<!-- /.col-lg-8 -->
+			<div class="col-lg-3"></div>
+		</div>
+		<!-- end of search bar row -->
+		
+		 <!-- content row -->
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-10">
+				<div class="panel panel-default cu_panel_search">
+					<div class="panel-body" style="margin-top:4px;">						
+			
+
+					</div>
+				</div>				
+			</div>
+			<div class="col-lg-1"></div>
+		</div>
+		<!-- end of content row -->
+	</div>
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
