@@ -45,7 +45,6 @@ if ($user) {
 // Login or logout url will be needed depending on current user state.
 if ($user) {
 	$logoutUrl = $facebook->getLogoutUrl();
-	header( 'Location: http://www.yoursite.com/new_page.html' ) ;
 } else {
 	$statusUrl = $facebook->getLoginStatusUrl();
 	$loginUrl = $facebook->getLoginUrl();
