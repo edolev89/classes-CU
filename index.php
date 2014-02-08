@@ -84,8 +84,8 @@ include ('Controller/indexCode.php');
 									Instructor&nbsp<span class="caret"></span>
 								</button>
 								<ul class="dropdown-menu pull-right">									
-									<li><a class="ddOption" href="#">Course Name&nbsp</a></li>
-									<li><a class="ddOption" href="#">Course Number&nbsp</a></li>
+									<li><a class="ddOption" href="#">Class Name&nbsp</a></li>
+									<li><a class="ddOption" href="#">Class Number&nbsp</a></li>
 								</ul>
 								<button type="button" class="btn btn-info" id="searchButtonHeader">
 									<span class="glyphicon glyphicon-search"></span>
@@ -121,10 +121,9 @@ include ('Controller/indexCode.php');
 						<button type="button" class="btn btn-primary dropdown-toggle" style="border-radius:0px;" id="dropDownButton" data-toggle="dropdown">
 							Instructor&nbsp<span class="caret"></span>
 						</button>
-						<ul class="dropdown-menu pull-right">
-							<li><a class="ddOption" href="#">Department&nbsp</a></li>
-							<li><a class="ddOption" href="#">Course Name&nbsp</a></li>
-							<li><a class="ddOption" href="#">Course Number&nbsp</a></li>
+						<ul class="dropdown-menu pull-right">							
+							<li><a class="ddOption" href="#">Class Name&nbsp</a></li>
+							<li><a class="ddOption" href="#">Class Number&nbsp</a></li>
 						</ul>
 						<button type="button" class="btn btn-info" id="searchButton">
 							<span class="glyphicon glyphicon-search"></span>
