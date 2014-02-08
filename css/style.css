@@ -1,0 +1,62 @@
+.cu_row_header {
+	padding-top:15px;
+}
+.cu_header {		
+	margin-bottom:0px;
+}
+
+.cu_second_header {
+	margin-top:6px;
+}
+
+.cu_row_search {
+	padding-top:15px;
+	padding-bottom:30px;
+}
+
+.cu_panel_search {
+	background-color:#0B0D17;
+	padding-right:0px;
+	padding-left:0px;	
+}
+
+.cu_table_search {	
+	margin-bottom:0px;	
+}
+
+.cu_review_button {
+	width:120px;
+	height:40px;
+	font-weight:bold;
+}
+
+.cu_table_grades {	
+	border-radius: 25px;
+}
+
+.cu_textarea {
+	resize: none;
+	border-radius:3px;
+	width:100%;	
+	color:black;
+}
+
+.cu_reviews_empty_cell_grades {
+	height:10px;
+	border-top: 1px solid #887CF7;
+	border-bottom: 1px solid #887CF7;
+}
+
+
+/* 'star-rating' component */
+.starRate {position:relative; margin:20px; overflow:hidden; zoom:1; z-index:1;}
+.starRate ul {width:160px; margin:0; padding:0;}
+.starRate li {display:inline; list-style:none;}
+.starRate a, .starRate b {background:url(files/star_rate.png) left top repeat-x;}
+.starRate a {float:right; margin:0 80px 0 -144px; width:80px; height:16px; background-position:left 16px; color:#000; text-decoration:none;}
+.starRate a:hover {background-position:left -32px;}
+.starRate b {position:absolute; z-index:-1; width:80px; height:16px; background-position:left -16px;}
+.starRate div b {left:0px; bottom:0px; background-position:left top;}
+.starRate a span {position:absolute; left:-300px;}
+.starRate a:hover span {left:90px; width:100%;}
+
