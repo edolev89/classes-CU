@@ -9,7 +9,7 @@ if(isset($_GET["type"]))
 if(isset($_GET["query"]))
 	$query = $_GET["query"];
 	else 
-	die();
+		die();
 
 
 /*

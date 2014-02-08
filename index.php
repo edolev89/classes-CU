@@ -72,6 +72,9 @@ include ('Controller/indexCode.php');
           </ul>
         </li>
       </ul>
+       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Logout</a></li>
+      </ul>
       <form class="navbar-form navbar-left" role="search">
 		<div class="input-group" style="max-width:100px;">
 			<input type="text" placeholder="Search by..." id="searchInputField" class="form-control">
@@ -91,9 +94,7 @@ include ('Controller/indexCode.php');
 			<!-- /btn-group -->
 		</div>	
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Logout</a></li>
-      </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>				

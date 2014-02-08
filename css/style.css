@@ -1,3 +1,12 @@
+.navbar-form {
+float:right !important;	
+}
+
+.navbar-right{
+	float:right;
+	margin-top:15px;
+	
+}
 .cu_row_header {
 	padding-top:15px;
 }
